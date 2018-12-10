@@ -1,0 +1,421 @@
+input{
+  border: 1px solid #e9e9e9;
+}
+select{
+    border: 1px solid #e9e9e9;
+}
+.centerbox .login .order{
+
+}
+.centerbox .login .order .o-tit{
+    font-size:16px;
+    line-height:50px;
+    font-weight:700;
+    color:#afafaf;
+}
+.centerbox .login .order .list-wrap{
+  margin-bottom:40px;
+}
+.list-wrap .list{
+
+}
+.list-wrap .list li{
+  height:70px;
+  padding:0 15px;
+  line-height:70px;
+  border-bottom:1px solid #f6f6f6;
+}
+.list-wrap .list li>div{
+  float:left;
+  line-height:70px;
+  width:15%;
+  text-align:center;
+}
+.list-wrap .list .li-tit{
+  background:#f6f6f6;
+  height:50px;
+  line-height:50px;
+}
+.list-wrap .list .li-tit>div{
+  line-height:50px;
+  height:50px;
+}
+.list-wrap .list li>div.price{
+  text-align:right;
+}
+.list-wrap .list li>div.name{
+  width:55%;
+  text-align:left;
+}
+.list-wrap .list li>div.name .img{
+  margin-right:10px;
+}
+.list-wrap .list li>div.name .img img{
+  height:50px;
+  width:auto;
+}
+.list-wrap .list li>div.price{
+  width:10%;
+}
+.list-wrap .list li>div.o-price{
+  width:20%;
+}
+
+.centerbox .login .order .sett{
+ 
+}
+.centerbox .login .order .sett::after{
+  display: block;
+  content:'';
+  clear:both;
+}
+.centerbox .login .order .sett .left{
+  float:left;
+  width:50%;
+}
+.centerbox .login .order .sett .left .codes{
+  margin-bottom:10px;
+}
+.centerbox .login .order .sett .left .inps input{
+  width:100%;
+  border-radius:20px;
+}
+.centerbox .login .order .sett .right{
+  float:right;
+  text-align:right;
+}
+.centerbox .login .order .sett .right span{
+  display:inline-block;
+}
+.centerbox .login .order .sett .right .titles{
+  width:100px;
+  text-align:right;
+  line-height:30px;
+}
+.centerbox .login .order .sett .right .num{
+  text-align:right;
+  width:150px;
+}
+.centerbox .login .order .sett .right .all-price{
+  font-size:24px;
+}
+.centerbox .login .order .address{
+  margin-bottom:40px;
+}
+.centerbox .login .order .address::after{
+  display:block;
+  content:'';
+  clear:both;
+}
+.centerbox .login .order .address form>div{
+  padding:3px 10px;
+  float:left;
+  margin-bottom:5px;
+}
+.centerbox .login .order .address form>div .inp{
+
+}
+
+.centerbox .login .order .address form>div .tits .icon{
+  color:#db3341;
+  position:relative;
+  top:3px;
+  left:3px;
+}
+.centerbox .login .order .address form>div .inp input{
+  width:70%;
+  border-radius:20px;
+  height: 30px;
+}
+.centerbox .login .order .address form>div .inp select{
+  width:70%;
+  border-radius:20px;
+  height: 30px;
+}
+.centerbox .login .order .address form>div .inp input.off{
+  background:#f7f7f7;
+  color:#a8a8a8;
+}
+.centerbox .login .order .address form>div .inp select.off{
+  background:#f7f7f7;
+  color:#a8a8a8;
+}
+.centerbox .login .order .address form>div .tits{
+  line-height:30px;
+}
+.centerbox .login .order .address .m-50{
+  width:50%;
+}
+.centerbox .login .order .address .m-100{
+  width:100%;
+}
+.centerbox .login .order .address .m-100 .sub{
+  margin-top:20px;
+  text-align:right;
+  position: relative;
+}
+.centerbox .login .order .address .m-100 .sub .error{
+  position:absolute;
+  left:0;
+  top:0;
+  line-height:40px;
+  color:#db3341;
+  display:none;
+}
+.centerbox .login .order .address .m-100 .sub button{
+  padding:0 50px;
+  border-radius:20px;
+  font-size:16px;
+}
+.centerbox .login .order .address .m-100 .sub .edit{
+  background:#01d8b6;
+  display:none;
+}
+.centerbox .login .order .address .m-100 .sub .edit:hover{
+  background:#01cfb0;
+}
+.centerbox .login .order .method{
+  margin-bottom:40px;
+}
+.centerbox .login .order .method>div{
+  display:inline-block;
+  padding:0 30px;
+  text-align:center;
+  line-height:40px;
+  border:1px solid #f0f0f0;
+  background:#f7f7f7;
+  margin-right:10px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:all ease 0.2s;
+}
+.centerbox .login .order .method>div.active{
+  background:#01d8b6;
+  border-color:#01d8b6;
+  color:#fff;
+}
+.centerbox .login .order .mode{
+  margin-bottom:40px;
+}
+.centerbox .login .order .mode>div{
+  display:inline-block;
+  padding:0 30px;
+  text-align:center;
+  line-height:40px;
+  border:1px solid #f0f0f0;
+  background:#f7f7f7;
+  margin-right:10px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:all ease 0.2s;
+}
+.centerbox .login .order .mode>div.active{
+  background:#01d8b6;
+  border-color:#01d8b6;
+  color:#fff;
+}
+.centerbox .login .order .pays{
+  text-align:right;
+  margin-top:40px;
+}
+.centerbox .login .order .pays button{
+ width:120px;
+ text-align:center;
+ padding:0;
+ border-radius:20px;
+ margin-left:10px;
+ font-size:16px;
+}
+.centerbox .login .order .pays .ret-btn{
+  background:#01d8b6;
+}
+.centerbox .login .order .pays .ret-btn:hover{
+  background:#01cfb0;
+}
+.centerbox .login .order .pays input.next-btn{
+  display:none;
+}
+
+
+.centerbox .login .pay .list-wrap{
+
+}
+.centerbox .login .pay .list-wrap::after{
+  clear:both;
+  content:'';
+  display:block;
+}
+.pay .list-wrap .list{
+  width:70%;
+  float:left;
+  padding-right:10%;
+}
+.pay .list-wrap .list li>div.price{
+  width:45%;
+}
+.pay .list-wrap .summary{
+  float:left;
+  width:30%;
+  border:1px solid #f0f0f0;
+  padding:50px 30px;
+}
+.pay .list-wrap .summary .names{
+  font-size:18px;
+  margin-bottom:20px;
+}
+.pay .list-wrap .summary ol li{
+  height:40px;
+  line-height:40px;
+}
+.pay .list-wrap .summary  ol .tits{
+  float:left;
+  color:#a1a1a1;
+}
+.pay .list-wrap .summary  ol .prices{
+  float:right;
+}
+.pay .list-wrap .summary  ol .total{
+  border-top:1px solid #f0f0f0;
+  margin-top:20px;
+  line-height:50px;
+  height:50px;
+}
+
+.pay .invoice{
+  margin-bottom:40px;
+}
+.pay .invoice::after{
+  clear:both;
+  content:'';
+  display:block;
+}
+.pay .invoice .lef{
+  float:left;
+  background:#f7f7f7;
+  width:40%;
+  padding:30px;
+  border-radius:10px;
+  border: 1px solid #f0f0f0;
+  margin-right:20px;
+}
+.pay .invoice .lef .names{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.pay .invoice .lef p{
+  line-height:30px;
+  color:#7c7c7c;
+}
+.pay .pay-tit{
+  margin-top:40px;
+  margin-bottom:20px;
+}
+.pay .pay-tit p{
+  color:#7c7c7c;
+  margin-top:5px;
+}
+.centerbox .login .pay .pay-method{
+  margin-bottom:20px;
+}
+.pay .total-price{
+  margin-bottom:20px;
+  font-size:20px;
+}
+.pay .total-price .all-price{
+  color:#58bac9;
+  font-weight:bold;
+  font-style:italic; 
+}
+.centerbox .login .mytit{
+  font-size:3.2rem;
+}
+.pay .pay-bot button{
+  border-radius:20px;
+  padding:0 50px;
+  font-size:18px;
+  display:none;
+}
+.pay .pay-bot .paypal-btn{
+  background:#ffc439;
+}
+.pay .pay-bot .credit-btn{
+  background:#02a0ea;
+}
+.pay .pay-bot .credit-btn:hover{
+  background:#0297db;
+}
+
+@media screen and (max-width: 768px) {
+.list-wrap{
+    overflow: scroll;
+  }
+  .list-wrap .list{
+    width:800px;
+  }
+  .centerbox .login .order .address .m-50{
+    width:100%;
+  }
+  .centerbox .login .order .address form>div{
+    padding:0;
+  }
+  .list-wrap .list li>div.name .img{
+    display:inline-block;
+  }
+  .centerbox .login .order .address .m-100 .sub button{
+    width:100%;
+  }
+  .centerbox .login .order .method>div,
+  .centerbox .login .order .pay-method>div,
+  .centerbox .login .order .mode>div{
+    margin:5px;
+  }
+  .centerbox .login .order .sett .left{
+    width:100%;
+  }
+  .centerbox .login .order .sett .right{
+    width:100%;
+    float:left;
+    margin-top:15px;
+  }
+  .pay .list-wrap .list-l{
+    overflow:scroll;
+    margin-bottom:20px;
+  }
+  .pay .list-wrap .list{
+    padding:0;
+    width:500px;
+  }
+  .pay .list-wrap .list li>div.name{
+    width:70%;
+  }
+  .pay .list-wrap .list li>div.price{
+    width:30%;
+  }
+  .pay .list-wrap .summary{
+    width:100%;
+  }
+  .pay .invoice .lef{
+    width:100%;
+    margin:0;
+    margin-bottom:20px;
+  }
+  .pay .pay-bot button{
+    width:100%;
+  }
+  .pay .pay-tit{
+    margin-top:20px;
+  }
+  .pay .invoice{
+    margin-bottom:20px;
+  }
+  .centerbox .login .order .pays button{
+    width:100%;
+    margin:0;
+    margin-top:15px;
+  }
+  .centerbox .login .pay .list-wrap{
+    margin-bottom:20px;
+  }
+
+}
+

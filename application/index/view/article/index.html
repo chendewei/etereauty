@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7"><![endif]-->
+<!--[if IE 8]><html class="ie ie8"><![endif]-->
+<!--[if IE 9]><html class="ie ie9"><![endif]-->
+<html lang="en">
+<style>
+.container1{
+	margin: 200px auto;
+    width: 66%;
+}
+._3kQqvPZzA{
+	left: 675.5px!important;
+	min-width: 66%!important;
+	transform: translate(-54%)!important;
+	width: 95%!important;
+}
+.list li{
+	width: 286.75px!important;
+
+	    margin-left: 18.59375px!important;
+}
+</style>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="{$set['host_key']}">
+<meta name="description" content="{$set['host_content']}">
+<title>{$set['host_name']}-{$info['title']}</title>
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/css/profit.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+</head>
+<!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+
+<body class="page-init">
+{include file="Public/header" /}
+<div id="back2top"><i class="fa fa-angle-up"></i></div>
+<div class="loader"></div>
+<div class="page-wrap">
+	<div class="ps-section ps-section--about pt-40 pb-40" style="margin-top: 100px;">
+		<div class="container1">
+			{:html_entity_decode($info['content'])}
+		</div>
+	</div>
+{include file="Public/footer" /}
+</div>
+<script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+    <script src="/index/js/profit.js"></script>
+</body>
+</html>

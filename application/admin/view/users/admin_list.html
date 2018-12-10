@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理员管理</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="/admin/dist/summernote.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/index.css">
+    <link rel="stylesheet" href="/admin/css/loading.css">
+    <link rel="stylesheet" href="/admin/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/admin/css/animate.css">
+    <link rel="stylesheet" href="/admin/css/page.css">
+</head>
+
+<body>
+    <div class="index-content">
+        <div class="loading">
+            <div id="preloader5"></div>
+        </div>
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">提示</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        {include file="public/left" /}
+        <div class="right-content">
+           {include file="public/header" /}
+            <div class="con">
+                <div class="system-con">
+                    <div class="main">
+                        <div class="home-tit">
+                            <i class="fa fa-home"></i>当前位置：
+                            <a href="{:url('index/index')}">首页</a>
+                            <font>></font>
+                            <span>管理员设置</span>
+                        </div>
+                        <div class="vip-main" id="vip">
+                            <div class="vip">
+
+                                <button class="add-vip-btn">
+                                    <i class="fa fa-plus"></i>添加会员
+                                </button>
+                                <div class="alertAdd-edit alert-edit-vip">
+                                    <div class="ed-content">
+                                        <div class="ed-tit">
+                                            <span>添加会员</span>
+                                            <button class="ed-top-no"></button>
+                                        </div>
+                                        <div class="text">
+                                            <div class="t-main">
+                                                <form action="{:url('admin/users/admin_list_add')}" method="post" class="edit-form">
+                                                    <ul class="t-list">
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>用户名：</label>
+                                                            <input type="text" class="imp" name="admin_name">
+                                                            <span class="error">请输入用户名</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>新密码：</label>
+                                                            <input type="password" class="imp" name="admin_pwd">
+                                                            <span class="error">请输入新密码</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                              角色：</label>
+                                                            <select name="group_id" class="imp" id="">
+                                                            {volist name="data" id="g"}
+                                                            <option value="{$g.id}">{$g.title}</option>
+                                                            {/volist}
+                                                            </select>
+                                                           
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                            </label>
+                                                            <div class="edit-sub-btn">
+                                                                <button type="submit" class="yes">提交</button>
+                                                                <button type="button" class="no">取消</button>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="vip-table">
+                                    <tr class="tit">
+                                        <th>
+                                            <input class="check" type="checkbox">
+                                        </th>
+                                        <th>ID</th>
+                                        <th>用户名</th>
+                                        <th>加入时间</th>
+                                      <!--   <th>状态</th> -->
+                                        <th>操作</th>
+                                    </tr>
+                                    {volist name="list" id="v" key="k"}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="check[]"  class="check-one"  value="{$v.id}">
+                                        </td>
+                                        <td class="id">{$k+$count}</td>
+                                        <td>{$v.admin_name}</td>
+                                        <td>{$v.datetime|date="Y-m-d",###}</td>
+                                       <!--  <td>
+                                           <span class="mystyle">开启</span>
+                                       </td> -->
+                                        <td>
+                                            <div class="vip-table-btn">
+                                               <!--  <button class="mystop" title="">
+                                                   <i class="fa"></i>
+                                               </button> -->
+                                                <button class="mystop myedit myedit-vip" title="编辑">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
+                                                <button class="myremove myremove-vip" ajax-url="{:url('admin/users/list_del',['id'=>$v['id']])}" title="删除">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                                
+
+
+                                            </div>
+                                            <div class="alert-edit alert-edit-vip">
+                                                <div class="ed-content">
+                                                    <div class="ed-tit">
+                                                        <span>管理员编辑</span>
+                                                        <button class="ed-top-no"></button>
+                                                    </div>
+                                                    <div class="text">
+                                                        <div class="t-main">
+                                                            <form action="{:url('admin/users/admin_list_edit',['id'=>$v['id']])}" class="edit-form">
+                                                                <ul class="t-list">
+                                                                    <li>
+                                                                        <label for="">
+                                                                        <span class="imp-icon">*</span>用户名：</label>
+                                                                        <input type="text" class="imp" name="admin_name" value="{$v.admin_name}">
+                                                                        <span class="error">请输入用户名</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        <span class="imp-icon">*</span>新密码：</label>
+                                                                        <input type="password" class="imp" name="admin_pwd">
+                                                                        <span class="error">请输入新密码</span>
+                                                                    </li>
+                                                                      <li>
+                                                                        <label for="">
+                                                                        角色：</label>
+                                                                        <select name="group_id" class="imp" id="">
+                                                                        {volist name="data" id="g"}
+                                                                        <option value="{$g.id}">{$g.title}</option>
+                                                                        {/volist}
+                                                                        </select>
+                                                           
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        </label>
+                                                                        <div class="edit-sub-btn">
+                                                                        <button type="submit" class="yes">提交</button>
+                                                                        <button type="button" class="no">取消</button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div class="vip-table-operat">
+                                    <div class="vip-table-allbtn">
+                                        <button class="all-myremove" id="all-myremove" ajax-url="{:url('admin/users/ldel_all')}">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>批量删除</span>
+                                        </button>
+                                    </div>
+                                    <div class="page-list">
+                                        {$page}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {include file="public/footer" /}
+           
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src='http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script src="/admin/dist/summernote.js"></script>
+    <script src="/admin/dist/lang/summernote-zh-CN.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript" src="/admin/js/zyupload.drag-1.0.0.js"></script>
+    <script src="/admin/js/form.js"></script>
+    <script src="/admin/js//wow.min.js"></script>
+    <script src="/admin/js/paging.js" type="text/javascript"></script>
+    <script src="/admin/layui/layui.js"></script>
+    <script src="/admin/js/index.js"></script>
+</body>
+
+</html>

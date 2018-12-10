@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+html {
+    font-size: 10px;
+    width:100%;
+    height:100%;
+}
+
+body {
+    color: #333;
+    font-size: 1.4rem;
+    height:100%;
+}
+
+ol,
+ul {
+    padding: 0;
+    margin:0;
+}
+input{
+    border:none;
+    border:1px solid #dbdbdb;
+    border-radius:1px;
+    height:40px;
+    padding:0 15px;
+    background:none;
+    -webkit-appearance: none;
+    box-sizing:border-box;
+}
+textarea{
+    border:1px solid #dbdbdb;
+    border-radius:1px;
+    background:none;
+    -webkit-appearance: none;
+    box-sizing:border-box;
+    padding:15px;
+    height:150px;
+}
+input::placeholder,textarea::placeholder{
+    color:#c9c9c9;
+}
+button{
+    border:none;
+    color:#fff;
+    border-radius:1px;
+    height:40px;
+    padding:0 15px;
+    cursor:pointer;
+}
+p{
+    margin:0;
+}
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+}
+
+.menu-icon{
+    width:50px;
+    height:50px;
+    display:none;
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 10;
+}
+.menu-icon .main{
+    position: absolute;
+    width:100%;
+    top:31%;
+    margin-left:13px;
+}
+.menu-icon .main span{
+    width:24px;
+    height:2px;
+    background:#fff;
+    display:block;
+    margin:5px 0;
+    position: relative;
+    transition: all ease 0.2s;
+}
+.menu-icon.active .main span:nth-child(1){
+    transform:rotate(-45deg);
+    top:3px;
+}
+.menu-icon.active .main span:nth-child(2){
+    transform:rotate(45deg);
+    top:-4px;
+}
+
+/* 弹出框 */
+
+.alert-prompt {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.prompt {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 350px;
+    background: #fff;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+
+.prompt .tit {
+    padding: 10px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 1.6rem;
+}
+
+.prompt .p-init {
+    padding: 20px 15px;
+    color: #636363;
+    font-size: 1.6rem;
+}
+
+
+@media screen and (max-width:768px){
+    html{
+        font-size:9px;
+    }
+    .menu-icon{
+        display:block;
+    }
+}

@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="{$set['host_key']}">
+<meta name="description" content="{$set['host_content']}">
+<title>{$set['host_name']}-MyOrder</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/index/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/ps-icon/ps-icon.css">
+<!-- CSS Library-->
+<link rel="stylesheet" href="/index/plugins/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/index/plugins/owl-carousel/assets/owl.carousel.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/Magnific-Popup/dist/magnific-popup.css">
+<link rel="stylesheet" href="/index/plugins/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="/index/plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="/index/plugins/slick/slick/slick.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/settings.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/layers.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/navigation.css">
+<link rel="stylesheet" href="/index/css/style.css">
+<link rel="stylesheet" href="/index/css/page.css">
+<link href="/index/houtai/css/style.css" rel="stylesheet" type="text/css">
+<link href="/index/houtai/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="/index/houtai/js/jquery-3.2.0.js"></script>
+<script>
+$(document).ready(function(e) {
+    $(".ht_top .dd ol li a").click(function(){
+        $(".ht_top .dd ol li a").removeClass("active")
+        $(this).addClass("active")
+        })
+    $(".address .box .b_add li .icn .a1").click(function(){
+        $(".address .box .b_add li .icn .a1").removeClass("a1_active")
+        $(this).addClass("a1_active")
+        })
+    $(".address .box .b_add li .icn .a2").click(function(){
+        $(this).parents("li").fadeOut()
+        })  
+});
+
+</script>
+
+</head>
+
+<body>
+{include file="Public/header" /}
+<div class="ht_main container-fluid">
+	<div class="ht_top container-fluid">
+        <div class="container dd">
+        	<h1>Welcome to join us</h1>
+            <p>Please fill in the information completely, thank you!</p>
+            <div class="dong">
+            	<img class="dong1" src="/index/houtai/images/dong1.png"><br>
+                <img class="dong2" src="/index/houtai/images/dong2.png">
+            </div>
+            <ol>
+            	<li class="col-md-3 col-xs-6"><a href="{:url('mycar/index')}">MY CART</a></li>
+                <li class="col-md-3 col-xs-6"><a class="active" href="#">MY ORDERS</a></li>
+                <li class="col-md-3 col-xs-6"><a href="{:url('myaddress/index')}">MY ADDRESS</a></li>
+                <li class="col-md-3 col-xs-6"><a href="{:url('reward/index')}">MY REWARDS</a></li>
+                <div class="clearfix"></div>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="orders container">
+    {volist name="list" id="vo"}
+        {if condition="$vo['status'] eq 1"}
+    	<div class="list list_n">
+        <h4>Cancelled Order</h4>
+        {else /}
+        <div class="list">
+        <h4>Payment order</h4>
+        {/if}
+        	
+            <div>
+                <div class="top">
+                	<div>
+                        <dl class="t_l">
+                           <dd><img src="{$vo['pic']['filepath']}"></dd>
+                           <dt>
+                               <p>{$vo['pro']['proname']}</p>
+                               <p style="margin-bottom:0">Quantity: {$vo.num}</p>
+                           </dt>
+                        </dl>
+                        <div class="t_r">${$vo.price}</div>
+                        <div class="clearfix"></div>
+                    </div>
+                 
+                </div>
+                <div class="bottom">
+                    <p>Order ID: {$vo['ordernum']}</p>
+                    <p>Order Date: {$vo.ordertime|date="Y-m-d H:i:s",###}</p>
+                    <p>Order Total: ${$vo.price}</p>
+                </div>
+                
+            </div>    
+        </div>
+      {/volist}  
+        
+    </div>
+    
+</div>
+{include file="Public/footer" /}
+<script type="text/javascript" src="/index/plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/index/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/index/plugins/overflow-text.js"></script>
+<script type="text/javascript" src="/index/plugins/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/index/plugins/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script type="text/javascript" src="/index/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/index/plugins/moment.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/index/plugins/slick/slick/slick.min.js"></script>
+<script type="text/javascript" src="/index/plugins/skrollr.min.js"></script>
+<script type="text/javascript" src="/index/plugins/gmap3.min.js"></script>
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script>
+<!-- Revolution - slider-->
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<!-- Custom scripts-->
+<script type="text/javascript" src="/index/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板管理</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="/admin/dist/summernote.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/index.css">
+    <link rel="stylesheet" href="/admin/css/loading.css">
+    <link rel="stylesheet" href="/admin/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/admin/css/animate.css">
+    <link rel="stylesheet" href="/admin/css/page.css">
+</head>
+
+<body>
+    <div class="index-content">
+        <div class="loading">
+            <div id="preloader5"></div>
+        </div>
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">提示</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        {include file="public/left" /}
+        <div class="right-content">
+           {include file="public/header" /}
+            <div class="con">
+                <div class="system-con">
+                    <div class="main">
+                        <div class="home-tit">
+                            <i class="fa fa-home"></i>当前位置：
+                            <a href="{:url('index/index')}">首页</a>
+                            <font>></font>
+                            <span>模板设置</span>
+                        </div>
+                        <div class="vip-main" id="vip">
+                            <div class="vip">
+
+                                <button class="add-vip-btn">
+                                    <i class="fa fa-plus"></i>添加模板
+                                </button>
+                                <div class="alertAdd-edit alert-edit-vip">
+                                    <div class="ed-content">
+                                        <div class="ed-tit">
+                                            <span>添加模板</span>
+                                            <button class="ed-top-no"></button>
+                                        </div>
+                                        <div class="text">
+                                            <div class="t-main">
+                                                <form action="{:url('admin/mo/add')}" method="post" class="edit-form">
+                                                    <ul class="t-list">
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>模板名：</label>
+                                                            <input type="text" class="imp" name="name">
+                                                            <span class="error">请输入模板</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>地址：</label>
+                                                            <input type="text" class="imp" name="url">
+                                                            <span class="error">请输入地址</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                                是否默认：</label>
+                                                            <input type="radio" class="imp" value="1" name="is_check">是
+                                                            <input type="radio" class="imp" value="2" name="is_check" checked>否    
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                            </label>
+                                                            <div class="edit-sub-btn">
+                                                                <button type="submit" class="yes">提交</button>
+                                                                <button type="button" class="no">取消</button>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="vip-table">
+                                    <tr class="tit">
+                                        <th>
+                                            <input class="check" type="checkbox">
+                                        </th>
+                                        <th>ID</th>
+                                        <th>模板名</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    {volist name="list" id="v" key="k"}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="check[]"  class="check-one"  value="{$v.id}">
+                                        </td>
+                                        <td class="id">{$k}</td>
+                                        <td>{$v.name}</td>
+                                        
+                                       <td>{if condition="$v['is_check'] eq 1"}
+                                           默认
+                                           {else /}
+                                           非默认  
+                                           {/if}
+                                       </td> 
+                                        <td>
+                                            <div class="vip-table-btn">
+                                               <!--  <button class="mystop" title="">
+                                                   <i class="fa"></i>
+                                               </button> -->
+                                                <button class="mystop myedit myedit-vip" title="编辑">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
+                                                <button class="myremove myremove-vip" ajax-url="{:url('admin/mo/del',['id'=>$v['id']])}" title="删除">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                                
+
+
+                                            </div>
+                                            <div class="alert-edit alert-edit-vip">
+                                                <div class="ed-content">
+                                                    <div class="ed-tit">
+                                                        <span>管理员编辑</span>
+                                                        <button class="ed-top-no"></button>
+                                                    </div>
+                                                    <div class="text">
+                                                        <div class="t-main">
+                                                            <form action="{:url('admin/mo/edit',['id'=>$v['id']])}" class="edit-form">
+                                                                <ul class="t-list">
+                                                                    <li>
+                                                                        <label for="">
+                                                                        <span class="imp-icon">*</span>模板名：</label>
+                                                                        <input type="text" class="imp" value="{$v['name']}" name="name">
+                                                                        <span class="error">请输入模板</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        <span class="imp-icon">*</span>地址：</label>
+                                                                        <input type="text" class="imp" value="{$v['url']}" name="url">
+                                                                        <span class="error">请输入地址</span>
+                                                                    </li>
+                                                                    <li style="text-align: left">
+                                                                        <label for="">
+                                                                         是否默认：</label>
+                                                                        <input type="radio" class="imp" value="1" name="is_check" {if condition="$v['is_check'] eq 1"} checked {/if} >是
+                                                                        <input type="radio" class="imp" value="2" name="is_check" {if condition="$v['is_check'] eq 2"} checked {/if}
+                                                                        >否    
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        </label>
+                                                                        <div class="edit-sub-btn">
+                                                                        <button type="submit" class="yes">提交</button>
+                                                                        <button type="button" class="no">取消</button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div class="vip-table-operat">
+                                    <div class="vip-table-allbtn">
+                                        <button class="all-myremove" id="all-myremove" ajax-url="{:url('admin/users/ldel_all')}">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>批量删除</span>
+                                        </button>
+                                    </div>
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {include file="public/footer" /}
+           
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src='http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script src="/admin/dist/summernote.js"></script>
+    <script src="/admin/dist/lang/summernote-zh-CN.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript" src="/admin/js/zyupload.drag-1.0.0.js"></script>
+    <script src="/admin/js/form.js"></script>
+    <script src="/admin/js//wow.min.js"></script>
+    <script src="/admin/js/paging.js" type="text/javascript"></script>
+    <script src="/admin/layui/layui.js"></script>
+    <script src="/admin/js/index.js"></script>
+</body>
+
+</html>

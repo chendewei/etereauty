@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+    <meta name="keywords" content="{$set['host_key']}">
+    <meta name="description" content="{$set['host_content']}">
+    <title>{$set['host_name']}</title>
+</head>
+<style>
+.play-btn{
+    display: none
+}
+</style>
+<body>
+    {include file="Public/header" /}
+    <div class="centerbox">
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">Prompt</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        <div class="banne-rBox">
+            <div class="slider" id="slider">
+                <ul class="img-list">
+                {volist name="banner" id="vo"}
+                <li>
+                    <a href="{$vo.url}">
+                        <img src="{$vo.pic}" alt="">
+                    </a>
+                </li>
+                {/volist}
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="third-box">
+
+                <div class="row">
+                    <ul class="th-list">
+                    {volist name="classname" id="vo"}
+                        <li class="col-sm-4">
+                            <div class="main">
+                                <div class="img">
+                                    <img src="{$vo.pic}" alt="">
+                                </div>
+                                <div class="tit">
+                                    <h4>{$vo.title}</h4>
+                                </div>
+                                <a href="{$vo.url}"></a>
+                            </div>
+                        </li>
+                      {/volist}  
+                    </ul>
+                </div>
+            </div>
+            <div class="title-box">
+                <div class="main">
+                    <h3>WHAT’S POPULAR AT ETEREAUTY</h3>
+                </div>
+            </div>
+            <div class="video-box">
+                <div class="play-btn">
+                    <i class="iconfont icon-play1"></i>
+                </div>
+                <video controls poster="/index/images/sp.jpg" id="myvideo" controls>
+                <source src="/index/video/xcm.mp4" type="video/mp4">
+                </video> 
+             
+            </div>
+            <div class="morePic">
+                <div class="m-item">
+                    <div class="left">
+                        <a href="{$pic1.url}">
+                            <img src="{$pic1.pic}" alt="">
+                        </a>
+                    </div>
+                    <div class="right">
+                        <a href="{$pic2.url}">
+                            <img src="{$pic2.pic}" alt="">
+                        </a>
+                        <a href="{$pic3.url}">
+                            <img src="{$pic3.pic}" alt="">
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="m-item">
+                    <div class="left">
+                        <a href="{$pic4.url}">
+                            <img src="{$pic4.pic}" alt="">
+                        </a>
+                        <a href="{$pic5.url}">
+                            <img src="{$pic5.pic}" alt="">
+                        </a>
+                    </div>
+                    <div class="right">
+                        <a href="{$pic6.url}">
+                            <img src="{$pic6.pic}" alt="">
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {include file="Public/footer" /}
+    <script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+    <script>
+        $('#slider').slider({
+            targetDom: $('.img-list'),
+            color: '#5fc9d9'
+        })
+    </script>
+</body>
+
+</html>

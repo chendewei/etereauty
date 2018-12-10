@@ -1,0 +1,179 @@
+<header>
+        <div class="h-main">
+            <div class="container">
+                <div class="h-left">
+                    <div class="logoBox">
+                        <a href="/">
+                            <img src="/index/images/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-icon">
+                    <div class="main">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="h-right">
+                    <div class="navBox">
+                        <div class="main">
+                            <ul class="nav-list">
+                                <li class="active">
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="toogle-li">
+                                    <a href="javascript:void(0)">Products
+                                        <i class="iconfont icon-add"></i>
+                                    </a>
+                                    <div class="pro-box song-box">
+                                        <div class="container">
+                                            <div class="dragMove" id="dragMove">
+                                                <ul class="p-list">
+                                                {volist name="nav" id="vo"}
+                                                    <li>
+                                                        <a href="{:url('prolist/index',['id'=>$vo['id']])}">
+
+                                                        {notempty  name="vo['son']"}
+                                                        
+                                                            <div class="img">
+                                                                <img src="{$vo['son']['pic']}" alt="">
+                                                            </div>
+                                                      
+                                                        {else /}
+                                                        {/notempty}
+                                                            <div class="tit">{$vo.name}</div>
+                                                        </a>
+                                                    </li>
+                                                {/volist}    
+                                                </ul>
+                                            </div>
+                                            <div style="position: absolute;right: 315px;top: 76px;font-size: 24px;">
+                                                ></div>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                                <li class="support toogle-li">
+                                    <a href="javascript:void(0)">Support
+                                        <i class="iconfont icon-add"></i>
+                                    </a>
+                                    <div class="sup-box song-box">
+                                        <ul class="list">
+                                            <li>
+                                                <a href="{:url('contact/index')}">Contact</a>
+                                            </li>
+                                            <li>
+                                                <a href="{:url('aftersale/index')}">Warranty</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="{:url('big/index')}">Shop</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="iconBox">
+                        <div class="main">
+                            <ul class="i-list">
+                                <li class="my-search">
+                                    <form action="{:url('key/index')}" method="get">
+                                        <div class="se-btn">
+                                        <span class="icons"><i class="iconfont icon-sousuo"></i></span>
+                                        <button class="subs"><i class="iconfont icon-sousuo"></i></button>     
+                                        </div>
+                                        <div class="se-text">
+                                            <input type="search" name="key" placeholder="Search">
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="my-cart">
+                                    <i class="iconfont icon-gouwuche"></i>
+                                    <div class="sup-box cart-box">
+                                        <ul class="list">
+                                            <li>
+                                                <a href="{:url('car/index')}">
+                                                    <i class="iconfont icon-gouwuche"></i>
+                                                    <span>My Cart</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{:url('myaddress/index')}">
+                                                    <i class="iconfont icon-dingdan"></i>
+                                                    <span>My Profit</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="my-user">
+                                    <i class="iconfont icon-yonghu"></i>
+                                    <div class="sup-box user-box">
+                                        <ul class="list">
+                                        {empty name="user_id"}
+                                            <li>
+                                                <a href="{:url('login/index')}">
+                                                    <i class="iconfont icon-suo"></i>
+                                                    <span>Sign in</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{:url('reg/index')}">
+                                                    <i class="iconfont icon-account"></i>
+                                                    <span>Sign up</span>
+                                                </a>
+                                            </li>
+                                        {else /}
+                                            <li>
+                                            <a href="{:url('login/login_out')}">
+                                            <i class="iconfont icon-suo"></i>
+                                            <span>Logout</span>
+                                            </a>
+                                            </li>
+                                        {/empty}
+                                        </ul>
+                                    </div>
+                                </li>
+                              <!--   <li class="my-lang">
+                                  <div class="lang-btn">
+                                      <img src="/index/images/USA.png" alt="">
+                                  </div>
+                                  <div class="sup-box user-box">
+                                      <ul class="list">
+                                          <li>
+                                              <a href="">
+                                                  <img src="/index/images/usa-c.png" alt="">
+                                                  <span>America</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="">
+                                                  <img src="/index/images/mei.png" alt="">
+                                                  <span>English</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="">
+                                                  <img src="/index/images/de.png" alt="">
+                                                  <span>German</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="">
+                                                  <img src="/index/images/fa.png" alt="">
+                                                  <span>French</span>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </header>

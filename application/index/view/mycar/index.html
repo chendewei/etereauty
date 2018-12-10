@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="{$set['host_key']}">
+<meta name="description" content="{$set['host_content']}">
+<title>{$set['host_name']}-MyCart</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/index/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/ps-icon/ps-icon.css">
+<!-- CSS Library-->
+<link rel="stylesheet" href="/index/plugins/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/index/plugins/owl-carousel/assets/owl.carousel.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/Magnific-Popup/dist/magnific-popup.css">
+<link rel="stylesheet" href="/index/plugins/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="/index/plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="/index/plugins/slick/slick/slick.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/settings.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/layers.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/navigation.css">
+<!-- Custom-->
+<link rel="stylesheet" href="/index/css/style.css">
+<link href="/index/houtai/css/style.css" rel="stylesheet" type="text/css">
+<link href="/index/houtai/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="/index/houtai/js/buy_pos_v2.js"></script>
+<script src="/index/houtai/js/jquery-3.2.0.js"></script>
+<script>
+$(document).ready(function(e) {
+    $(".ht_top .dd ol li a").click(function(){
+		$(".ht_top .dd ol li a").removeClass("active")
+		$(this).addClass("active")
+		})
+	$(".address .box .b_add li .icn .a1").click(function(){
+		$(".address .box .b_add li .icn .a1").removeClass("a1_active")
+		$(this).addClass("a1_active")
+		})
+	$(".address .box .b_add li .icn .a2").click(function(){
+		$(this).parents("li").fadeOut()
+		})
+	$(".cart .c_add li .right .clear").click(function(){
+		$(".quxiao").fadeIn()
+		$(".quxiao .q_main").animate({"top":"38%"},"slow")
+		})
+	$(".quxiao .q_main .yes").click(function(){
+		$(".cart .c_add").fadeOut()
+		$(".quxiao").fadeOut()
+		})
+	$(".quxiao .q_main .no").click(function(){
+		$(".quxiao").fadeOut()
+		})		
+});
+
+</script>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var disX=0;
+	var disY=0;
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		
+		disX=oEvent.clientX-oDiv.offsetLeft;
+		disY=oEvent.clientY-oDiv.offsetTop;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			var t=oEvent.clientY-disY;
+			if(l<0)
+			{
+				l=0;
+			}
+			else if(l>document.documentElement.clientWidth-oDiv.offsetWidth)
+			{
+				l=document.documentElement.clientWidth-oDiv.offsetWidth
+			}
+			if(t<0)
+			{
+				t=0;	
+			}
+			else if(t>document.documentElement.clientHeight-oDiv.offsetHeight)
+			{
+				t=document.documentElement.clientHeight-oDiv.offsetHeight	
+			}
+			oDiv.style.left=l+'px';
+			oDiv.style.top=t+'px';
+			
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;	
+		}
+		return false;
+	}
+	
+}
+</script>
+</head>
+
+<body>
+
+{include file="Public/header" /}
+
+<div class="ht_main container-fluid">
+	<div class="ht_top container-fluid">
+        <div class="container dd">
+        	<h1>Welcome to join us</h1>
+            <p>Please fill in the information completely, thank you!</p>
+            <div class="dong">
+            	<img class="dong1" src="/index/houtai/images/dong1.png"><br>
+                <img class="dong2" src="/index/houtai/images/dong2.png">
+            </div>
+            <ol>
+            	<li class="col-md-3 col-xs-6"><a class="active" href="#">MY CART</a></li>
+                <li class="col-md-3 col-xs-6"><a href="{:url('myorder/index')}">MY ORDERS</a></li>
+                <li class="col-md-3 col-xs-6"><a href="{:url('myaddress/index')}">MY ADDRESS</a></li>
+                <li class="col-md-3 col-xs-6"><a href="{:url('reward/index')}">MY REWARDS</a></li>
+                <div class="clearfix"></div>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="cart container">
+    	<div class="c_none col-sm-12">
+     		<img src="/index/houtai	/images/gwcc.png">
+            <p>Your cart is empty</p>
+            <a href="/">SHOP NOW</a>
+        </div> 
+        <ol class="c_add col-sm-12">
+        	{volist name="list" id="vo"}
+            <li>
+            	<div class="left">
+                	<a href="{:url('detail/index',['id'=>$vo['id']])}"><img src="{$vo['pic']}"></a>
+                </div>
+                <div class="con">
+                	<h4>{$vo.proname}</h4>
+                    <p>Price: <span class="price">{$vo.price}</span></p>
+                </div>
+                <div class="right">
+                	<p>Quantity</p>
+                	<input type="text" style="border:none" class="input_sl" value="1">
+                    
+                    <a class="clear" href="{:url('mycar/del',['id'=>$vo['id']])}"></a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+			{/volist}
+			{notempty name="proid"}
+            <a class="buy" href="{:url('order/index')}">
+            	<span class="tp">$62.00</span><font></font>CHECK OUT
+            </a>
+            {/notempty}
+        </ol>     
+    </div>
+ 
+</div>
+{include file="Public/footer" /}
+
+<!-- JS Library-->
+<script type="text/javascript" src="/index/plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/index/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/index/plugins/overflow-text.js"></script>
+<script type="text/javascript" src="/index/plugins/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/index/plugins/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script type="text/javascript" src="/index/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/index/plugins/moment.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/index/plugins/slick/slick/slick.min.js"></script>
+<script type="text/javascript" src="/index/plugins/skrollr.min.js"></script>
+<script type="text/javascript" src="/index/plugins/gmap3.min.js"></script>
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script>
+<!-- Revolution - slider-->
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<!-- Custom scripts-->
+<script type="text/javascript" src="/index/js/main.js"></script>
+<script>
+var w = 0;
+$(".con p .price").each(function(){
+	w+=parseFloat($(this).text());
+})
+$(".tp").text(w);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+    <meta name="keywords" content="{$set['host_key']}">
+	<meta name="description" content="{$set['host_content']}">
+	<title>{$set['host_name']}-Register</title>
+
+</head>
+
+<body>
+    {include file="Public/header" /}
+    <div class="centerbox regbox">
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">Prompt</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="login register">
+                <div class="row">
+                    <div class="img col-sm-7">
+                        <img src="/index/images/register_bj.png" alt="">
+                    </div>
+                    <div class="text col-sm-5">
+                        <h3>CREATE ACCOUNT</h3>
+                        <form action="{:url('reg/index')}">
+                            <div class="wrap">
+                                <div class="item">
+                                    <div class="tit">
+                                        Email address
+                                        <span class="imp-icon">*</span>
+                                    </div>
+                                    <div class="inp">
+                                        <input type="text" name="email" class="user_name" placeholder="Enter Your E-mail">
+                                        <div class="correct">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="error">
+                                            <i class="fa fa-times"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="item">
+                                    <div class="tit">
+                                        Password
+                                        <span class="imp-icon">*</span>
+                                    </div>
+                                    <div class="inp">
+                                        <input type="password" name="pwd" class="pass_word" placeholder="6~15 characters in Length">
+                                        <div class="correct">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="error">
+                                            <i class="fa fa-times"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="tit">
+                                        Copy the CAPTCHA
+                                        <span class="imp-icon">*</span>
+                                    </div>
+                                    <div class="inp">
+                                        <input type="text" name="captcha" class="captcha">
+                                        <div class="correct">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="error">
+                                            <i class="fa fa-times"></i>
+                                        </div>
+                                        <canvas id="can" width="100" height="50"></canvas>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="checkbox active">
+                                        <span class="box">
+                                            <i class="fa fa-check"></i>
+                                        </span>
+                                        <span class="c-test">Subscribe to the Soundcore Newsletter</span>
+                                        <input class="c-inp" type="hidden" value="true" name="news_letter">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="my-btn register">
+                                        <button type="submit">Register</button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="sign-box">
+                                        <span>
+                                            <a href="{:url('login/index')}">
+                                                <i class="fa fa-angle-left"></i>Sign in</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {include file="Public/footer" /}
+    <script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+</body>
+
+</html>

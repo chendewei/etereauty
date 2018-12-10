@@ -1,0 +1,133 @@
+body {
+    font-family: Whitney Light,Helvetica,Arial,"sans-serif";
+    font-size: 14px;
+    line-height: 1.375;
+    color: #3d3938;
+}
+.Place {
+    padding: 3rem 0 2rem;
+}
+div {
+    display: block;
+}
+.module-container {
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.Place .page-title {
+    text-align: center;
+}
+.Place .page-title .item {
+    display: inline-block;
+}
+.Place .page-title .item span {
+    padding-left: 1.5rem;
+    font-size: 3.4rem;
+    line-height: 7.5rem;
+    display: inline-block;
+}
+.Place .list {
+    display: table;
+    width: 100%;
+    padding: 1rem 0;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.Place .list dd, .Place .list dt {
+    list-style: none;
+    margin: 1rem 0;
+    display: table;
+    width: 100%;
+}
+.Place .list dd .image {
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+.Place .list dd .image img {
+    width: 100%;
+    height: 100%;
+}
+.Place .list dd .text {
+    margin: 0 1rem 0 100px;
+}
+.Place .list dd .text .name, .Place .list dd .text .price {
+    display: block;
+}
+.Place .list dd .text .color, .Place .list dd .text .quantity {
+    color: #9e9f9f;
+    margin-right: 1rem;
+}
+.Place .list dd .text .price {
+    text-align: right;
+}
+.Place .count, .Place total {
+    border-top: 1px solid #9e9f9f;
+    border-bottom: 1px solid #9e9f9f;
+    padding: 2rem 0;
+    margin: 0;
+    color: #9e9f9f;
+}
+.Place .count li, .Place total li {
+    list-style: none;
+    display: table;
+    width: 320px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+.Place .count li .key, .Place total li .key {
+    float: left;
+}
+.Place .count li .value, .Place total li .value {
+    float: right;
+}
+.Place .count li.total, .Place total li.total {
+    padding-top: 5rem;
+    color: #3d3938;
+    line-height: 2rem;
+    font-weight: 700;
+}
+.Place .checkout {
+    text-align: center;
+    padding: 2rem 0;
+}
+.Place .checkout .title {
+    color: #3d3938;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.Place .checkout .description {
+    color: #9e9f9f;
+}
+.Place .checkout p {
+    margin: 0;
+    line-height: 2rem;
+}
+.Place .checkout .credit img {
+    display: inline-block;
+    width: 4rem;
+    margin: 1rem .5rem;
+}
+.Place .checkout .submit {
+    margin-top: 2rem;
+    display: inline-block;
+    width: 20rem;
+    font-size: 1.2rem;
+    max-width: 90%;
+    line-height: 3.5rem;
+    color: #fff;
+    background: #00a7e1;
+    border:none;
+}
+.Place .checkout .submit .price {
+    margin-right: 1.5rem;
+}
+.Place .checkout .submit .line {
+    margin-left: 1.5rem;
+}

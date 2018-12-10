@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章管理</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="/admin/dist/summernote.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/index.css">
+    <link rel="stylesheet" href="/admin/css/loading.css">
+    <link rel="stylesheet" href="/admin/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/admin/css/animate.css">
+    <link rel="stylesheet" href="/admin/css/page.css">
+</head>
+
+<body>
+    <div class="index-content">
+        <div class="loading">
+            <div id="preloader5"></div>
+        </div>
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">提示</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        {include file="public/left" /}
+        <div class="right-content">
+            {include file="public/header" /}
+            <div class="con">
+                <div class="system-con">
+                    <div class="main">
+                        <div class="home-tit">
+                            <i class="fa fa-home"></i>当前位置：
+                            <a href="{:url('index/index')}">首页</a>
+                            <font>></font>
+                            <span>文章管理</span>
+                        </div>
+                        <div class="info-main" id="info">
+                            <div class="info info-my-active">
+                                    <div class="info-left-btn info-left-btn-active" style="background: #fff">
+                                     <!--    <i class="fa fa-caret-left" aria-hidden="true"></i> -->
+                                    </div>
+                                <div class="info-search">
+                                    <div>
+                                    <form action="{:url('article/index')}">
+                                        <input type="text" name="title" class="search-text" placeholder="文章标题">
+                                        <button type="submit" class="search-btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                                    </div>
+                                </div>
+                                <button class="add-info-btn">
+                                    <i class="fa fa-plus"></i>添加文章
+                                </button>
+                                <div class="alertAdd-edit">
+                                    <div class="ed-content">
+                                        <div class="ed-tit">
+                                            <span>添加文章</span>
+                                            <button class="ed-top-no"></button>
+                                        </div>
+                                        <div class="text">
+                                            <div class="t-main">
+                                                <form action="{:url('article/add')}" class="edit-form">
+                                                    <ul class="t-list">
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>文章标题：</label>
+                                                            <input type="text" class="imp" name="title">
+                                                            <span class="error">请输入文章标题</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                                详细内容：
+                                                            </label>
+                                                            <div class="text-edit">
+                                                                <div class="summernote edit-sum" id="summ"></div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                            </label>
+                                                            <div class="edit-sub-btn">
+                                                                <button type="submit" class="yes">提交</button>
+                                                                <button type="button" class="no">取消</button>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="info-table">
+                                    <tr class="tit">
+                                        <th>
+                                            <input class="check" type="checkbox">
+                                        </th>
+                                        <th class="id">ID</th>
+                                        <th>标题</th>                                       
+                                        <th>发布时间</th>                           
+                                        <th>操作</th>
+                                    </tr>
+                                    {volist name="list" id="vo" key='k'}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="check" value="{$vo.id}" class="check-one">
+                                        </td>
+                                        <td  class="id">{$k+$count}</td>
+                                        <td><a href="http://www.partykindom.com/index/article/index/id/{$vo.id}.html" target="_blank">{$vo.title}</a></td>
+                                        <td>{$vo['datetime']|date="Y-m-d H:i:s",###}</td>
+                                        <td>
+                                            <div class="info-table-btn">
+                                                <button class="myedit" title="编辑">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
+                                                <button class="myremove" ajax-url="{:url('article/del',['id'=>$vo['id']])}" title="删除">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </div>
+                                            <div class="alert-edit">
+                                                <div class="ed-content">
+                                                    <div class="ed-tit">
+                                                        <span>编辑文章</span>
+                                                        <button class="ed-top-no"></button>
+                                                    </div>
+                                                    <div class="text">
+                                                        <div class="t-main">
+                                                            <form action="{:url('article/edit',['id'=>$vo['id']])}" class="edit-form">
+                                                                <ul class="t-list">
+                                                                    <li>
+                                                                        <label for="">
+                                                                            <span class="imp-icon">*</span>产品标题：</label>
+                                                                        <input type="text" class="imp" name="title" value="{$vo.title}" >
+                                                                        <span class="error">请输入标题</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                            详细内容：
+                                                                        </label>
+                                                                        <div class="text-edit">
+                                                                            <div class="summernote edit-sum" >{:html_entity_decode($vo.content)}</div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        </label>
+                                                                        <div class="edit-sub-btn">
+                                                                            <button type="submit" class="yes">提交</button>
+                                                                            <button type="button" class="no">取消</button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div class="info-table-operat">
+                                    <div class="info-table-allbtn">
+                                        <button class="all-myremove" id="all-myremove" ajax-url="{:url('article/del_all')}" >
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>批量删除</span>
+                                        </button>
+                                    </div>
+                                     <div class="page-list">
+                                        {$page}
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {include file="public/footer" /}
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src='http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script src="/admin/dist/summernote.js"></script>
+    <script src="/admin/dist/lang/summernote-zh-CN.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript" src="/admin/js/zyupload.drag-1.0.0.js"></script>
+    <script src="/admin/js/form.js"></script>
+    <script src="/admin/js//wow.min.js"></script>
+    <script src="/admin/js/paging.js" type="text/javascript"></script>
+    <script src="/admin/layui/layui.js"></script>
+    <script src="/admin/js/index.js"></script>
+</body>
+
+</html>

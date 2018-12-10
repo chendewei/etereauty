@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:44 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>评论管理</title>
+  
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="/admin/discuss/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="/admin/discuss/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="/admin/discuss/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="/admin/discuss/css/animate.min.css" rel="stylesheet">
+    <link href="/admin/discuss/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style>
+      th{
+        text-align: center;
+      }
+    </style>
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>所有用户</h5>
+                        <div class="ibox-tools">
+                            
+                            <a href="{:url('commont/cj',['id'=>$id])}" class="btn btn-primary btn-xs">采集评论</a>
+                            <a href="{:url('commont/add',['id'=>$id])}" class="btn btn-primary btn-xs">添加评论</a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row m-b-sm m-t-sm">
+                        </div>
+
+                        <div class="project-list">
+                            <table class="table table-hover" style="text-align:center">
+                                <tbody>
+                                  <tr>
+                                      <th>ID</th>
+                                      <th></i>标题</th>
+                                      <th></i>注册时间</th>
+                                      <th>操作</th>
+                                  </tr>
+                                  {volist name="info" id="vo" key="k"}
+                                    <tr>
+                                        <td>
+                                            {$k}
+                                        </td>
+                                        <td>
+                                            {$vo.title}
+                                        </td>
+                                        <td >
+                                            {$vo.datetime}
+                                        </td>                                       
+                                        <td>
+                                            <a href="{:url('commont/edit',['id'=>$vo['id']])}" class="btn btn-white btn-sm"> 编辑 </a>                                        
+                                            <a href="{:url('commont/del',['id'=>$vo['id']])}" class="btn btn-white btn-sm"> 删除 </a>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                  
+                                    </tbody>
+                                </table>
+                            </div>
+                            {$page}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="/admin/discuss/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/admin/discuss/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+    </body>
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:44 GMT -->
+</html>

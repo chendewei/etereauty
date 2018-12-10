@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:4:{i:0;a:6:{s:2:"id";i:25;s:5:"title";s:7:"banner1";s:3:"pic";s:39:"/uploads/image/20181110/09241937476.png";s:3:"url";s:1:"#";s:7:"is_type";i:1;s:6:"remark";s:18:"长*宽：1920*850";}i:1;a:6:{s:2:"id";i:26;s:5:"title";s:7:"banner2";s:3:"pic";s:39:"/uploads/image/20181110/09243855177.png";s:3:"url";s:1:"#";s:7:"is_type";i:1;s:6:"remark";s:18:"长*宽：1920*850";}i:2;a:6:{s:2:"id";i:27;s:5:"title";s:7:"banner3";s:3:"pic";s:39:"/uploads/image/20181110/09245405911.png";s:3:"url";s:1:"#";s:7:"is_type";i:1;s:6:"remark";s:18:"长*宽：1920*850";}i:3;a:6:{s:2:"id";i:28;s:5:"title";s:7:"banner4";s:3:"pic";s:39:"/uploads/image/20181110/09251297136.png";s:3:"url";s:31:"/index/prolist/index/id/35.html";s:7:"is_type";i:1;s:6:"remark";s:18:"长*宽：1920*850";}}

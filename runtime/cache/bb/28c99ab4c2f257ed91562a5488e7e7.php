@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:3:{i:0;a:6:{s:2:"id";i:35;s:5:"title";s:11:"New Release";s:3:"pic";s:39:"/uploads/image/20181113/14094874552.png";s:3:"url";s:22:"/index/newr/index.html";s:7:"is_type";i:3;s:6:"remark";s:17:"长*宽：411*268";}i:1;a:6:{s:2:"id";i:36;s:5:"title";s:11:"Gifts Ideas";s:3:"pic";s:39:"/uploads/image/20181113/14123291386.png";s:3:"url";s:22:"/index/gift/index.html";s:7:"is_type";i:3;s:6:"remark";s:17:"长*宽：411*268";}i:2;a:6:{s:2:"id";i:37;s:5:"title";s:9:"Big Deals";s:3:"pic";s:39:"/uploads/image/20181113/14125898370.png";s:3:"url";s:21:"/index/big/index.html";s:7:"is_type";i:3;s:6:"remark";s:17:"长*宽：411*268";}}

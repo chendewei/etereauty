@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7"><![endif]-->
+<!--[if IE 8]><html class="ie ie8"><![endif]-->
+<!--[if IE 9]><html class="ie ie9"><![endif]-->
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{$set['host_key']}">
+	<meta name="description" content="{$set['host_content']}">
+	<title>{$set['host_name']}-{$info['proname']}</title>
+<!-- Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700%7CPacifico%7CVarela+Round%7CPoppins" rel="stylesheet">
+<link rel="stylesheet" href="/index/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/ps-icon/ps-icon.css">
+<!-- CSS Library-->
+<link rel="stylesheet" href="/index/plugins/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/index/plugins/owl-carousel/assets/owl.carousel.css">
+<link rel="stylesheet" href="/index/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+<link rel="stylesheet" href="/index/plugins/Magnific-Popup/dist/magnific-popup.css">
+<link rel="stylesheet" href="/index/plugins/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="/index/plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="/index/plugins/slick/slick/slick.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/settings.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/layers.css">
+<link rel="stylesheet" href="/index/plugins/revolution/css/navigation.css">
+<!-- Custom-->
+<link rel="stylesheet" href="/index/css/style.css">
+<!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+<!--WARNING: Respond.js doesn't work if you view the page via file://-->
+<!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+
+<body class="page-init">
+{include file="Public/header" /}
+<div id="back2top"><i class="fa fa-angle-up"></i></div>
+<div class="loader"></div>
+<div class="page-wrap">
+	<!-- Heros-->
+	<div class="ps-section pt-80 pb-80">
+		<div class="container">
+			<div class="ps-product--detail">
+				<div class="row">
+					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+						<div class="ps-product__thumbnail">
+							
+							<div class="owl-slider primary" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in="" data-owl-animate-out="" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;" data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
+							{volist name="list" id="vo"}
+								<div class="ps-product__image"><img src="{$vo.filepath}" alt=""></div>
+							{/volist}
+
+							</div>
+							<div class="owl-slider second mb-30" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="20" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in="" data-owl-animate-out="" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="4" data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;" data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
+							{volist name="list" id="vo"}
+							
+							<img src="{$vo.filepath}" alt="">
+							
+						
+							{/volist}
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ">
+					<form action="{:url('car/index')}" method="post">
+						<header>
+							<h3 class="ps-product__name">{$info['proname']|substr=0,97}...</h3>
+							<p class="ps-product__price">${$info['price']}{notempty name="info['gprice']"}<del>${$info['gprice']}</del>{/notempty}</p>
+							{if condition="$info['dietime'] gt $time"}
+							<p>Activity countdown:<span id="day_show">0day </span><strong id="hour_show"> 0hour</strong><strong id="minute_show"> 0min</strong><strong id="second_show"> 0sec</strong>	</p>
+							{/if}
+							<a class="ps-product__quickview popup-modal" href="#" data-effect="mfp-zoom-out">QUICK OVERVIEW</a>
+
+							<div class="ps-product__description">
+								<p>{$info['abstract']}</p>
+							</div>
+							<div class="ps-product__shop">
+								<div class="form-group--number">
+									<a class="minus"><span>-</span></a>
+									<input class="form-control" name="num" type="text" value="1">
+									<a class="plus"><span>+</span></a>
+								</div>
+							</div>
+						</header>
+						<footer>
+							<div class="row">
+								<div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
+								<input type="hidden" name="proid" value="{$info['id']}" >
+								<button class="ps-btn--fullwidth ps-btn" type="submit">Purchase Now<i class="fa fa-angle-right"></i></button>
+								</div>
+								{if condition="$info['is_show'] eq 1"}
+								<div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
+								<input type="hidden" name="proid" value="{$info['id']}" >
+								<a class="ps-btn--fullwidth ps-btn" target="_blank" href="{$info['external']}">Buy AT Amazon<i class="fa fa-angle-right"></i></a>
+								</div>
+								{/if}
+							</div>
+						</footer>
+						</form>
+					</div>
+				</div>
+				<div class="ps-product__info">
+					<ul class="tab-list" role="tablist">
+						<li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">Overview</a></li>
+						<li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Review</a></li>
+					</ul>
+				</div>
+				<div class="tab-content mb-60">
+					<div class="tab-pane active" role="tabpanel" id="tab_01">
+						{:html_entity_decode($info['text'])}
+					</div>
+					<div class="tab-pane active" role="tabpanel" id="tab_02">
+					
+						<div class="ps-review-box">					
+							{volist name="discuss" id="vo"}
+
+							<div class="ps-review-box__content" style="margin-bottom: 10px">
+								<header>
+									<p>By {$vo['name']} - {$vo['datetime']}</p>
+
+								</header>
+								<p>{$vo.title}</p>
+								<p>{$vo.content}</p>
+							</div>
+							{/volist}
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="ps-section ps-section--best-seller pt-40 pb-100">
+		<div class="container">
+			<div class="ps-section__header text-center mb-50">
+				<h4 class="ps-section__top">Different Party Feast</h4>
+				<h3 class="ps-section__title ps-section__title--full">BEST SELLER</h3>
+			</div>
+			<div class="ps-section__content">
+				<div class="owl-slider owl-slider--best-seller" data-owl-auto="true" data-owl-loop="true" data-owl-speed="100000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-animate-in="" data-owl-animate-out="" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-nav-left="&lt;i class=&quot;ps-icon--back&quot;&gt;&lt;/i&gt;" data-owl-nav-right="&lt;i class=&quot;ps-icon--next&quot;&gt;&lt;/i&gt;">
+				 	{volist name="pro" id="vo"}
+					<div class="ps-product">
+						<div class="ps-product__thumbnail">
+							<a class="ps-product__overlay" href="{:url('detail/index',['id'=>$vo['id']])}"></a>
+							{volist name="vo.pic" id="v"}
+							<img src="{$v['filepath']}" alt="">
+							{/volist}
+							<ul class="ps-product__action">
+								<form action="{:url('car/index')}" method='post'>
+									<input type="hidden" name="num" value="1">
+									<input type="hidden" name="proid" value="{$vo['id']}">
+									<button style=" margin-left: 108px;"  type="submit" data-tooltip="Add to cart">
+										<i class="ps-icon--shopping-cart"></i>
+									</button>
+								</form>
+							</ul>
+						</div>
+						<div class="ps-product__content"><a class="ps-product__title" href="{:url('detail/index',['id'=>$vo['id']])}">{$vo.proname|substr=0,50}...</a>
+							<p class="ps-product__price">${$vo.price}</p>
+						</div>
+					</div>
+					{/volist}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{include file="Public/footer" /}
+</div>
+<!-- JS Library-->
+<script type="text/javascript" src="/index/plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/index/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/index/plugins/overflow-text.js"></script>
+<script type="text/javascript" src="/index/plugins/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/index/plugins/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script type="text/javascript" src="/index/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/index/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/index/plugins/moment.js"></script>
+<script type="text/javascript" src="/index/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/index/plugins/slick/slick/slick.min.js"></script>
+<script type="text/javascript" src="/index/plugins/skrollr.min.js"></script>
+<script type="text/javascript" src="/index/plugins/gmap3.min.js"></script>
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script>
+<!-- Revolution - slider-->
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="/index/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<!-- Custom scripts-->
+<script type="text/javascript" src="/index/js/main.js"></script>
+
+<script type="text/javascript">
+
+
+{notempty name="info['stime']"}
+var intDiff = parseInt({$info['stime']});//倒计时总秒数量
+{/notempty}
+
+
+function timer(intDiff){
+
+	window.setInterval(function(){
+
+	var day=0,
+
+		hour=0,
+
+		minute=0,
+
+		second=0;//时间默认值		
+
+	if(intDiff > 0){
+
+		day = Math.floor(intDiff / (60 * 60 * 24));
+
+		hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+
+		minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+
+		second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+
+	}
+
+	if (minute <= 9) minute = '0' + minute;
+
+	if (second <= 9) second = '0' + second;
+
+	$('#day_show').html(day+" day ");
+
+	$('#hour_show').html('<s id="h"></s>'+hour+' hour ');
+
+	$('#minute_show').html('<s></s>'+minute+' min ');
+
+	$('#second_show').html('<s></s>'+second+' sec ');
+
+	intDiff--;
+
+	}, 1000);
+
+} 
+
+
+
+$(function(){
+
+	timer(intDiff);
+
+});	
+
+</script>
+</body>
+</html>

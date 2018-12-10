@@ -1,0 +1,80 @@
+<footer>
+        <div class="email-box">
+            <div class="container">
+                <div class="main">
+                    <h3>Subscribe</h3>
+                    <p>Access exclusive offers, news, and more.</p>
+                    <form action="{:url('book/index')}" method="post">
+                        <div>
+                            <input type="text" name="email" placeholder="Enter Your Email" class="e-text">
+                        </div>
+                        <div>
+                            <button class="e-btn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bot-box">
+            <div class="container">
+                <div class="b-logo">
+                    <a href="/">
+                        <img src="/index/images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="b-nav">
+                    <div class="main">
+                        <ul>
+                            <li>
+                                <h4>Company Info</h4>
+                                <div>
+                                    <a href="">Privacy Policy</a>
+                                </div>
+                                <div>
+                                    <a href="/index/article/index/id/1.html">About Us</a>
+                                </div>
+                            </li>
+                            <li>
+                                <h4>Support</h4>
+                                <div>
+                                    <a href="{:url('contact/index')}">Contact Us</a>
+                                </div>
+                                <div>
+                                    <a href="{:url('aftersale/index')}">Warranty</a>
+                                </div>
+                            </li>
+                            <li>
+                                <h4>Contact Us</h4>
+                                <div>
+                                    <a href="">Mon-Fri 9:00-17:00 PST</a>
+                                    <a href="">US/CA:+1(855)997-6688</a>
+                                    <div style="color:#fff">UK：+44(808)168-0666</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="b-icon">
+                    <ul>
+                     {volist   name="link" id="vo"}
+                        <li>
+                            <a href="{$vo.url}">
+                                <img src="{$vo.pic}" alt="">
+                            </a>
+                        </li>
+                      
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="copy" style="text-align: center;margin-top: 30px;">
+            <div class="container" style="color:#fff" >Copyright © 2018 etereauty Innovations Limited</div>
+            {notempty  name="share"}{$share['url']}{/notempty}
+        </div>
+        </div>
+        <div class="top-box">
+            <i class="fa fa-angle-up"></i>
+        </div>
+
+    </footer>

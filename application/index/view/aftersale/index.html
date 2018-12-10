@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+    <meta name="keywords" content="{$set['host_key']}">
+    <meta name="description" content="{$set['host_content']}">
+    <title>{$set['host_name']}-WARRANTY</title>
+
+</head>
+
+<body>
+    {include file="Public/header" /}
+    <div class="centerbox detabox">
+        <div class="s-content">
+            <div class="alert-prompt">
+                <div class="prompt">
+                    <p class="tit">Prompt</p>
+                    <div class="p-init"></div>
+                </div>
+            </div>
+            <div class="img-box">
+                <div class="img">
+                    <img src="images/warr_bj.png" alt="">
+                </div>
+            </div>
+            <div class="b-main">
+                <div class="container">
+                    <div class="title-box warr-tit">
+                        <div class="main">
+                            <h3>Warranty</h3>
+                        </div>
+                    </div>
+                    <div class="th-list">
+                        <ul>
+                            <li>
+                                <span class="t-icon">
+                                    <i class="iconfont icon-weixiu"></i>
+                                </span>
+                                <span class="t-text">Free 12 Months Warranty Extension</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="email-box">
+                        <form action="{:url('aftersale/index')}">
+                            <div class="e-inp">
+                                <div class="main">
+                                    <label for="">Email address</label>
+                                    <div class="wra">
+                                        <input type="text" class="email" name="email" placeholder="user@domain.com">
+                                        <div class="error">Please enter your email address correctly</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="e-inp">
+                                <div class="main">
+                                    <label for="">Order No.
+                                        <button class="why-btn" type="button">
+                                            <i class="fa fa-question"></i>
+                                        </button>
+                                    </label>
+                                    <div class="wra">
+                                        <input type="text" class="order" name="orderno" placeholder="ex: 123-1234567-1234567">
+                                        <div class="error">Please enter the order number correctly</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="e-inp">
+                                <div class="main">
+                                    <label for="" class="kong"></label>
+                                    <div class="wra">
+                                        <button class="mybtn">Extend Warranty</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="alert-box">
+                        <div class="a-bg"></div>
+                        <div class="a-main">
+                            <div class="tit">
+                                <span>Purchase order number?</span>
+                                <button class="close-btn">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="text">
+                                <p>* Please make sure your email address and order number are correct.</p>
+                                <p>If you bought your product on Amazon, your 17 figure purchase order number can be found in
+                                    the confirmation email you received from Amazon. You can also find itin your Amazon account
+                                    center.</p>
+                                <p>If you purchase RAVPower products from other authorized retailers or distributors(not Amazon),
+                                    Please contact them directly for specific guidance of the warranty process. </p>
+                                <p>No warranty will be provided for unauthorized reselling. </p>
+                                <p>If you bought your product from RAVPower website, you are already granted with an extended
+                                    warranty, no extension is needed.</p>
+                            </div>
+                            <div class="btn-box">
+                                <button class="ok-btn">I understand</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {include file="Public/footer" /}
+    <script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+</body>
+
+</html>

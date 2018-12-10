@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+    <meta name="keywords" content="{$set['host_key']}">
+    <meta name="description" content="{$set['host_content']}">
+    <title>{$set['host_name']}-Find</title>
+
+</head>
+
+<body>
+    {include file="Public/header" /}
+    <div class="centerbox orderbox">
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">Prompt</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        <div class="o-bj">
+            <img src="/index/images/product_bj.png" alt="">
+        </div>
+        <div class="container">
+            <div class="bigdeal giftdeal">
+                <div class="main">
+                    <div class="row">
+                        <ul class="gift-list">
+                        <h3>Find the following results for you</h3>
+                        {volist name="list" id="vo"}
+                            <li class="col-sm-4">
+                                <div class="wrap">
+                                    <div class="row">
+                                        <a href="{:url('detail/index',['id'=>$vo['id']])}"></a>
+                                        <div class="gift-img">
+                                            {volist name="vo.pic" id="v"}
+                                            <img src="{$v['filepath']}" alt="">
+                                            {/volist}
+                                        </div>
+                                        <!-- <div class="color-box">
+                                            <span style="background:linear-gradient(#fff,#307ef5)"></span>
+                                        </div> -->
+                                        <div class="info">
+                                            <p>{$vo.proname|substr=0,70}...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {/volist}
+                      
+
+                        </ul>
+                        <div class="load-btn">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {include file="Public/footer" /}
+    <script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+</body>
+
+</html>

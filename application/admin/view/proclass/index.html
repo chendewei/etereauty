@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类目管理</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link href="/admin/dist/summernote.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/index.css">
+    <link rel="stylesheet" href="/admin/css/loading.css">
+    <link rel="stylesheet" href="/admin/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/admin/css/animate.css">
+</head>
+
+<body>
+    <div class="index-content">
+        <div class="loading">
+            <div id="preloader5"></div>
+        </div>
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">提示</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        {include file="public/left" /}
+        <div class="right-content">
+           {include file="public/header" /}
+            <div class="con">
+                <div class="system-con">
+                    <div class="main">
+                        <div class="home-tit">
+                            <i class="fa fa-home"></i>当前位置：
+                            <span class="home-fa">
+                                <a href="{:url('index/index')}">首页</a>
+                                <font>></font>
+                            </span>
+                            
+                            <span>类目管理</span>
+                        </div>
+                        <div class="info-main">
+                            <div class="info-menu info-menu1">
+                                <ul class="menus">
+                                {volist name="nav_list" id="vo"}
+                                    {if condition ="$vo['pid'] eq 0"}
+                                    <li class="toggle-li">
+                                        <button class="fa-clear myremove" ajax-url="{:url('proclass/del',['id'=>$vo['id']])}" title="删除">
+                                            <i class="fa fa-times-circle"></i>
+                                        </button>
+                                        <a href="javascript:void(0)" class="toggle-a">
+                                            <span class="menu-name" data_id="{$vo['id']}" >{$vo.name}</span>
+                                            <i class="fa fa-angle-right rig"></i>
+                                        </a>
+                                     <ul class="info-menu-son">
+                                          {volist name="vo['son']" id="v1"} 
+                                           <li>
+                                               <button class="son-clear myremove" ajax-url="{:url('proclass/del',['id'=>$v1['id']])}" title="删除">
+                                                   <i class="fa fa-times-circle"></i>
+                                               </button>
+                                               <span class="menu-son-name" data_id="{$v1['id']}" >{$v1.name}</span>
+                                           </li>
+                                          {/volist}
+                                       </ul>
+                                    </li>
+                                    {/if}
+                                {/volist}
+
+                                </ul>
+                            </div>
+                            <div class="info">
+                                <div class="info-left-btn">
+                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="info-list">
+                                    <form action="{:url('admin/proclass/add')}" class="info-list-form">
+                                        <ul>
+                                            <li>
+                                                <label for="">
+                                                    <span class="imp-icon">*</span>类目名称：</label>
+                                                <input type="text" name="name" class="imp">
+                                                <span class="error">请输入标题</span>
+                                            </li>
+                                            <li>
+                                                <label for="">
+                                                    <span class="imp-icon">*</span>选择分类：</label>
+                                                <select name="pid" id="">
+                                                    <option value="0">顶级分类</option>
+                                                    <option value="0">自定义页面</option>
+                                                    {volist name="class_list" id="vo"}
+                                                    <option value="{$vo.id}"><span>{$vo.name}</span>{$vo.level}级分类</option>
+                                                    {/volist}
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label for="">
+                                                    <span class="imp-icon">*</span>自定义网页地址：</label>
+                                                <input type="text" name="url" class="imp">
+                                                <span class="error">请输入地址</span>
+                                            </li>
+                                            <li>
+                                                <label for=""></label>
+                                                <button class="info-list-btn">添加</button>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {include file="public/footer" /}
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src='http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script src="/admin/dist/summernote.js"></script>
+    <script src="/admin/dist/lang/summernote-zh-CN.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript" src="/admin/js/zyupload.drag-1.0.0.js"></script>
+    <script src="/admin/js/form.js"></script>
+    <script src="/admin/js//wow.min.js"></script>
+    <script src="/admin/js/paging.js" type="text/javascript"></script>
+    <script src="/admin/layui/layui.js"></script>
+    <script src="/admin/js/index.js"></script>
+</body>
+
+</html>

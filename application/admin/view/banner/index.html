@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图管理</title>
+    <link href="/admin/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/layui/css/layui.css">
+    <link href="/admin/dist/summernote.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/index.css">
+    <link rel="stylesheet" href="/admin/css/loading.css">
+    <link rel="stylesheet" href="/admin/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="/admin/css/animate.css">
+</head>
+
+<body>
+    <div class="index-content">
+        <div class="loading">
+            <div id="preloader5"></div>
+        </div>
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">提示</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        {include file="public/left" /}
+        <div class="right-content">
+            {include file="public/header" /}
+            <div class="con">
+                <div class="system-con">
+                    <div class="main">
+                        <div class="home-tit">
+                            <i class="fa fa-home"></i>当前位置：
+                            <a href="{:url('index/index')}">首页</a>
+                            <font>></font>
+                            <span>轮播图设置
+                          </span>
+                        </div>
+                        <div class="vip-main" id="share">
+                            <div class="vip">
+                                
+                                <button class="add-vip-btn">
+                                    <i class="fa fa-plus"></i>添加轮播图
+                                </button>
+                                <div class="alertAdd-edit alert-edit-share">
+                                    <div class="ed-content">
+                                        <div class="ed-tit">
+                                            <span>添加轮播图</span>
+                                            <button class="ed-top-no"></button>
+                                        </div>
+                                        <div class="text">
+                                            <div class="t-main">
+                                                <form action="{:url('banner/add')}" class="edit-form">
+                                                    <ul class="t-list">
+                                                        <li>
+                                                            <label for="">
+                                                                <span class="imp-icon">*</span>名称：</label>
+                                                            <input type="text" class="imp" name="title">
+                                                            <span class="error">请输入名称</span>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                            地址：</label>
+                                                            <input type="text" class="imp" name="url">
+                                                        </li>
+                                                        <li>
+                                                            <label for="">图标上传：</label>
+                                                            <div class="img-file">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label for="">图片类型：</label>
+                                                            <input style="margin-top: 13px;" type="radio" name="is_type" value="1" checked >轮播图
+                                                            <input type="radio" name="is_type" value="2">其他展示图
+                                                            <input type="radio" name="is_type" value="3">类目
+                                                        </li>
+                                                        <li>
+                                                            <label for="">备注：</label>
+                                                            <input type="text" class="imp" name="remark">
+                                                        </li>
+                                                        <li>
+                                                            <label for="">
+                                                            </label>
+                                                            <div class="edit-sub-btn">
+                                                                <button type="submit" class="yes">提交</button>
+                                                                <button type="button" class="no">取消</button>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="vip-table">
+                                    <tr class="tit">
+                                        <th>
+                                            <input class="check" type="checkbox">
+                                        </th>
+                                        <th>ID</th>
+                                        <th>名称</th>
+                                        <th>图片</th>
+                                        <th>地址</th>
+                                        <th>图片类型</th>
+                                        <th>备注</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    {volist name="list" id="v" key='k' }
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="check" class="check-one" value="{$v.id}">
+                                        </td>
+                                        <td class="id">{$k}</td>
+                                        <td>{$v.title}</td>
+                                        <td><img style="max-width: 250px;" src="{$v.pic}" alt=""></td>
+                                        <td>
+                                            {$v.url}
+                                        </td>
+                                        <td>{if condition="$v['is_type'] eq 1" }轮播图{elseif condition="$v['is_type'] eq 2"}其他展示图{else /}类目{/if}</td>
+                                        <td>{$v.remark}</td>
+                                        <td>
+                                            <div class="vip-table-btn">
+                                                
+                                                <button class="myedit" title="修改">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
+                                                <button class="myremove" ajax-url="{:url('banner/del',['id'=>$v['id']])}" title="删除">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </div>
+                                            <div class="alert-edit alert-edit-share">
+                                                <div class="ed-content">
+                                                    <div class="ed-tit">
+                                                        <span>编辑轮播图</span>
+                                                        <button class="ed-top-no"></button>
+                                                    </div>
+                                                    <div class="text">
+                                                        <div class="t-main">
+                                                            <form action="{:url('banner/edit',['id'=>$v['id']])}" class="edit-form">
+                                                                <ul class="t-list">
+                                                                    <li>
+                                                                        <label for="">
+                                                                            <span class="imp-icon">*</span>名称：</label>
+                                                                        <input type="text" class="imp" name="title" value="{$v.title}">
+                                                                        <span class="error">请输入站点名称</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">地址：</label>
+                                                                        <input type="text" class="imp" name="url" value="{$v.url}">
+                                                                        <span class="error">请输入站点地址</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">图标上传：</label>
+                                                                        <div class="img-file">
+                                                                        </div>
+                                                                    </li>
+                                                                    <li style="text-align: left;">
+                                                                        <label for="">图片类型：</label>
+                                                                        <input style="margin-top: 13px;" type="radio" name="is_type" value="1" {if condition="$v['is_type'] eq 1 "} checked {/if} >轮播图
+                                                                        <input type="radio" name="is_type" value="2" {if condition="$v['is_type'] eq 2 "} checked {/if} >其他展示图
+                                                                        <input type="radio" name="is_type" value="3" {if condition="$v['is_type'] eq 3 "} checked {/if}>类目
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">备注：</label>
+                                                                        <input type="text" class="imp" value="{$v['remark']}" name="remark">
+                                                                    </li>
+                                                                    <li>
+                                                                        <label for="">
+                                                                        </label>
+                                                                        <div class="edit-sub-btn">
+                                                                            <button type="submit" class="yes">提交</button>
+                                                                            <button type="button" class="no">取消</button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div class="vip-table-operat">
+                                    <div class="vip-table-allbtn">
+                                        <button class="all-myremove" id="all-myremove" ajax-url="{:url('banner/del_all')}">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>批量删除</span>
+                                        </button>
+                                    </div>
+                                    <!-- <div class="page-list">
+                                        <div value="1 0"></div>
+                                        <div id="page2" class="page_div">
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {include file="public/footer" /}
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src='/admin/js/bootstrap.min.js'></script>
+    <script src="/admin/dist/summernote.js"></script>
+    <script src="/admin/dist/lang/summernote-zh-CN.js"></script>
+    <script src="/admin/js/summernote.js"></script>
+    <script type="text/javascript" src="/admin/js/zyupload.drag-1.0.0.js"></script>
+    <script src="/admin/js/form.js"></script>
+    <script src="/admin/js//wow.min.js"></script>
+    <script src="/admin/js/paging.js" type="text/javascript"></script>
+    <script src="/admin/layui/layui.js"></script>
+    <script src="/admin/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="{$set['host_key']}">
+    <meta name="description" content="{$set['host_content']}">
+    <title>{$set['host_name']}-My Profit</title>
+    <link rel="stylesheet" href="/index/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/index/css/Component.css">
+    <link rel="stylesheet" href="/index/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/init.css">
+    <link rel="stylesheet" href="/index/css/style.css">
+    <link rel="stylesheet" href="/index/css/profit.css">
+    <link rel="stylesheet" href="/index/fonts/iconfont.css">
+    <link rel="stylesheet" href="/index/font/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    {include file="Public/header" /}
+    <div class="con-box">
+        <div class="alert-prompt">
+            <div class="prompt">
+                <p class="tit">Prompt</p>
+                <div class="p-init"></div>
+            </div>
+        </div>
+        <div class="personal">
+            <div class="container">
+                <div class="row">
+                    <div class="mes">
+                        <div class="text col-md-12">
+                             <form action="{:url('myaddress/add')}" method="post">
+                                <div class="item-main">
+                                 <div class="item name">
+                                        <input class="phone-inp"  name="f_name" style="font-size: 15px;" type="text" placeholder="Please fill in your first name" value="" readonly>
+                                    </div>
+                                     <div class="item name">
+                                        <input class="phone-inp"  name="l_name" style="font-size: 15px;" type="text" placeholder="Please fill in your last name" value="" readonly>
+                                    </div>
+                                    <div class="item name">
+                                        <input class="phone-inp"  name="phone" style="font-size: 15px;" type="text" placeholder="Please fill in your phone" value="" readonly>
+                                    </div>
+                                    <div class="item name">
+                                        <input class="country-inp"  name="country" style="font-size: 15px;" type="text" placeholder="Please fill in your country" value="" readonly>
+                                    </div>
+                                    <div class="item name">
+                                        <input class="province-inp"  name="province" style="font-size: 15px;" type="text" placeholder="Please fill in your province" value="" readonly>
+                                    </div>
+                                    <div class="item name">
+                                        <input class="city-inp"  name="city" style="font-size: 15px;" type="text" placeholder="Please fill in your city" value="" readonly>
+                                    </div>
+                                    
+                                    <div class="item address">
+                                        <textarea class="myAddress"  name="address" id="" cols="20" rows="10" placeholder="Please fill in your address1" readonly></textarea>
+                                    </div>
+                                    <div class="item address">
+                                        <textarea class="myAddress"  name="address1" id="" cols="20" rows="10" placeholder="Please fill in your address2" readonly></textarea>
+                                    </div>
+                                    <div class="item name">
+                                        <input class="zip-inp"  name="zip" style="font-size: 15px;" type="text" placeholder="Please fill in your zip" value="" readonly>
+                                    </div>
+                                    
+                                    <span class="edit-btn">
+                                        <i class="fa fa-pencil"></i>
+                                    </span>
+                                    <span class="confirm-btn">
+                                        <i class="fa fa-check"></i>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="coupon"></div>
+              
+                    <div class="only coupon" >
+                        <div class="col-md-12">
+                            <div class="tit-name">
+                                <span  >Coupon</span>
+                               
+                                <span class="confirm-btn">
+                                    <i class="fa fa-check"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="list">
+
+                            {volist name="r_list" id="v"}
+                            <li class="col-md-3">
+                                <div class="main">
+                                    <img src="/index/images/coupon.png" alt="">
+                                    <div class="price">{if condition="$v['class'] eq 1"}${$v.price}{else /}{$v.price}%{/if}</div>
+                                    <span class="remove-btn" ajax-url="{:url('myaddress/code_del',['id'=>$v['id']])}">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                    <input type="hidden" value="{$v['id']}">
+                                </div>
+                            </li>
+                            {/volist}
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="address"></div>
+                    {notempty name="list"}
+                    <div class="only address" id="address">
+                        <div class="col-md-12">
+                            <div class="tit-name">
+                                <form action="">
+                                    <span  >Receiving address</span>
+                                    <span class="edit-btn">
+                                        <i class="fa fa-pencil"></i>
+                                    </span>
+                                    <span class="confirm-btn">
+                                        <i class="fa fa-check"></i>
+                                    </span>
+                                </form>
+                            </div>
+                        </div>
+                        <ul class="list">
+                        {volist name="list" id="v"}
+                            <li class="col-md-4">
+                                <div class="main">
+                                {if condition='$v["is_defult"] eq 2'}
+                                    <img src="/index/images/address_bj1.png" alt="">
+                                    {else /}
+                                    <img src="/index/images/address_bj2.png" alt="">
+                                    {/if}
+                                    <div class="text">
+                                        <form action="{:url('Myaddress/defult',['id'=>$v['id']])}">
+                                            <div class="top">
+                                                <textarea name="" id="" cols="20" rows="10" readonly>{$v.username}({$v.phone})</textarea>
+                                            </div>
+                                            <div class="bot">
+                                                <textarea name="" id="" cols="20" rows="10" readonly>{$v.country},{$v.province},{$v.city},{$v.address},{$v.zip}</textarea>
+                                            </div>
+                                            <input type="hidden" value="true">
+                                        </form>
+                                    </div>
+                                    <span class="remove-btn" ajax-url="{:url('myaddress/address_del',['id'=>$v['id']])}">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                </div>
+                            </li>
+                         {/volist} 
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    {/notempty}
+                     <div id="order"></div>
+                    
+                    <div class="only histor" >
+                        <div class="col-md-12">
+                            <div class="tit-name">
+                                <span  >Historical order</span>
+                                <span class="edit-btn" style="display: none">
+                                    <i class="fa fa-pencil"></i>
+                                </span>
+                                <span class="confirm-btn">
+                                    <i class="fa fa-check"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="show-tit col-md-12">
+                            <span class="all-check">
+                                <div class="all-check-box">
+                                    <i class="fa fa-check"></i>
+                                    <input type="hidden" value="false">
+                                </div>
+                            </span>
+                            <span class="tit">Total selection</span>
+                            <button class="all-remove" disabled ajax-url="">Delete all</button>
+                        </div>
+                        <ul class="list table col-md-12">
+                        {volist name="o_list" id="vo"}
+                            <li>
+                                <input class="id" type="hidden" value="{$vo.id}">
+                                <span class="check">
+                                    <span class="check-box">
+                                        <i class="fa fa-check"></i>
+                                        <input class="check-inp" type="hidden" value="false">
+                                    </span>
+                                </span>
+                                <span class="img">
+                                    <img src="{$vo['pic']['filepath']}" alt="" style="max-width:21%">
+                                </span>
+                                <span class="name">{$vo['pro']['proname']}</span>
+                                <span class="color">    </span>
+                                <span class="price">{$vo.price}$</span>
+                                <span class="number">{$vo.num}</span>
+                                <span class="all-price">{$vo.price}$</span>
+                                <span class="remove">
+                                    <span class="remove-btn" ajax-url="{:url('myaddress/car_del')}">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                </span>
+                            </li>
+                        {/volist}
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <div id="center"></div>
+                    <div class="only security">
+                        <div class="col-md-12">
+                            <div class="tit-name">
+                                <span  >Security center</span>
+                                <span class="edit-btn">
+                                    <i class="fa fa-pencil"></i>
+                                </span>
+                                <span class="confirm-btn" ajax-url="{:url('myaddress/users_edit')}">
+                                    <i class="fa fa-check"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="list col-md-12">
+                            <li>
+                                <div class="tit">Password</div>
+                                <input class="oldPass" type="password" value="{$user_info['pwd']}" readonly>
+                            </li>
+                            <li>
+                                <div class="tit">New Password</div>
+                                <input class="newPass" type="password" value="" readonly>
+                            </li>
+                            <li>
+                                <div class="tit">Confirm new password</div>
+                                <input class="againPass" type="password" value="" readonly>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="Public/footer" /}
+    <script src="/index/js/jquery.js"></script>
+    <script src="/index/swiper/dist/js/swiper.min.js"></script>
+    <script src="/index/js/Component.js"></script>
+    <script src="/index/js/index.js"></script>
+    <script src="/index/js/profit.js"></script>
+</body>
+
+</html>
