@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-12-04 08:10:39
+-- Generation Time: 2018-12-10 06:21:00
 -- 服务器版本： 5.7.14
 -- PHP Version: 5.6.25
 
@@ -336,25 +336,269 @@ INSERT INTO `gw_commont` (`id`, `name`, `title`, `datetime`, `content`, `pro_id`
 --
 
 CREATE TABLE `gw_country` (
-  `country_id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(55) NOT NULL,
-  `name_chinese` varchar(2552) NOT NULL,
-  `name_english` varchar(255) NOT NULL
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `gw_country`
 --
 
-INSERT INTO `gw_country` (`country_id`, `code`, `name_chinese`, `name_english`) VALUES
-(1, 'GB', '', 'United Kingdom'),
-(2, 'FR', '', 'France'),
-(3, 'DE', '', 'Germany'),
-(4, 'IT', '', 'Italy'),
-(5, 'ES', '', 'Spain'),
-(6, 'CA', '', 'Canada'),
-(7, 'JP', '', 'Japan'),
-(8, 'US', '', 'United States');
+INSERT INTO `gw_country` (`id`, `name`) VALUES
+(2, 'Afghanistan'),
+(3, 'Aland'),
+(4, 'Islands'),
+(5, 'Albania'),
+(6, 'Algeria'),
+(7, 'American Samoa'),
+(8, 'Andorra'),
+(9, 'Angola'),
+(10, 'Anguilla'),
+(11, 'Antarctica'),
+(12, 'Antigua And Barbuda'),
+(13, 'Argentina'),
+(14, 'Armenia'),
+(15, 'Aruba'),
+(16, 'Australia'),
+(17, 'Austria'),
+(18, 'Azerbaijan'),
+(19, 'Bahamas'),
+(20, 'Bahrain'),
+(21, 'Bangladesh'),
+(22, 'Barbados'),
+(23, 'Belarus'),
+(24, 'Belgium'),
+(25, 'Belize'),
+(26, 'Benin'),
+(27, 'Bermuda'),
+(28, 'Bhutan'),
+(29, 'Bolivia'),
+(30, 'Bosnia And Herzegovina'),
+(31, 'Botswana'),
+(32, 'Bouvet Island'),
+(33, 'Brazil'),
+(34, 'British Indian Ocean Territory'),
+(35, 'Brunei Darussalam'),
+(36, 'Bulgaria'),
+(37, 'Burkina Faso'),
+(38, 'Burundi'),
+(39, 'Cambodia'),
+(40, 'Cameroon'),
+(41, 'Canada'),
+(42, 'Cape Verde'),
+(43, 'Cayman Islands'),
+(44, 'Central'),
+(45, 'African'),
+(46, 'Republic'),
+(47, 'Chad'),
+(48, 'Chile'),
+(49, 'China'),
+(50, 'Christmas Island'),
+(51, 'Cocos (Keeling) Islands'),
+(52, 'Colombia'),
+(53, 'Comoros'),
+(54, 'Congo'),
+(55, 'Congo Democratic Republic'),
+(56, 'Cook Islands'),
+(57, 'Costa Rica'),
+(58, 'Cote DIvoire'),
+(59, 'Croatia'),
+(60, 'Cuba'),
+(61, 'Curacao'),
+(62, 'Cyprus'),
+(63, 'Czech Republic'),
+(64, 'Denmark'),
+(65, 'Djibouti'),
+(66, 'Dominica'),
+(67, 'Dominican Republic'),
+(68, 'Ecuador'),
+(69, 'Egypt'),
+(70, 'El Salvador'),
+(71, 'Equatorial Guinea'),
+(72, 'Eritrea'),
+(73, 'Estonia'),
+(74, 'Ethiopia'),
+(75, 'Falkland Islands (Malvinas)'),
+(76, 'Faroe Islands'),
+(77, 'Fiji'),
+(78, 'Finland'),
+(79, 'France'),
+(80, 'French Guiana'),
+(81, 'French Polynesia'),
+(82, 'French Southern Territories'),
+(83, 'Gabon'),
+(84, 'Gambia'),
+(85, 'Georgia'),
+(86, 'Germany'),
+(87, 'Ghana'),
+(88, 'Gibraltar'),
+(89, 'Greece'),
+(90, 'Greenland'),
+(91, 'Grenada'),
+(92, 'Guadeloupe'),
+(93, 'Guam'),
+(94, 'Guatemala'),
+(95, 'Guernsey'),
+(96, 'Guinea'),
+(97, 'Guinea-Bissau'),
+(98, 'Guyana'),
+(99, 'Haiti'),
+(100, 'Heard Island &amp; Mcdonald Islands'),
+(101, 'Holy See (Vatican City State)'),
+(102, 'Honduras'),
+(103, 'Hong Kong'),
+(104, 'Hungary'),
+(105, 'Iceland'),
+(106, 'India'),
+(107, 'Indonesia'),
+(108, 'Iran  Islamic Republic Of'),
+(109, 'Iraq'),
+(110, 'Ireland'),
+(111, 'Isle Of Man'),
+(112, 'Israel'),
+(113, 'Italy'),
+(114, 'Jamaica'),
+(115, 'Japan'),
+(116, 'Jersey'),
+(117, 'Jordan'),
+(118, 'Kazakhstan'),
+(119, 'Kenya'),
+(120, 'Kiribati'),
+(121, 'Korea'),
+(122, 'Kuwait'),
+(123, 'Kyrgyzstan'),
+(124, 'Lao Peoples Democratic Republic'),
+(125, 'Latvia'),
+(126, 'Lebanon'),
+(127, 'Lesotho'),
+(128, 'Liberia'),
+(129, 'Libyan Arab Jamahiriya'),
+(130, 'Liechtenstein'),
+(131, 'Lithuania'),
+(132, 'Luxembourg'),
+(133, 'Macao'),
+(134, 'Macedonia'),
+(135, 'Madagascar'),
+(136, 'Malawi'),
+(137, 'Malaysia'),
+(138, 'Maldives'),
+(139, 'Mali'),
+(140, 'Malta'),
+(141, 'Marshall'),
+(142, 'Islands'),
+(143, 'Martinique'),
+(144, 'Mauritania'),
+(145, 'Mauritius'),
+(146, 'Mayotte'),
+(147, 'Mexico'),
+(148, 'Micronesia'),
+(150, 'Federated'),
+(151, 'States'),
+(152, 'Of'),
+(153, 'Moldova'),
+(154, 'Monaco'),
+(155, 'Mongolia'),
+(156, 'Montenegro'),
+(157, 'Montserrat'),
+(158, 'Morocco'),
+(159, 'Mozambique'),
+(160, 'Myanmar'),
+(161, 'Namibia'),
+(162, 'Nauru'),
+(163, 'Nepal'),
+(164, 'Netherlands'),
+(165, 'Netherlands Antilles'),
+(166, 'New Caledonia'),
+(167, 'New Zealand'),
+(168, 'Nicaragua'),
+(169, 'Niger'),
+(170, 'Nigeria'),
+(171, 'Niue'),
+(172, 'Norfolk Island'),
+(173, 'Northern Mariana Islands'),
+(174, 'Norway'),
+(175, 'Oman'),
+(176, 'Pakistan'),
+(177, 'Palau'),
+(178, 'Palestine State of'),
+(179, 'Panama'),
+(180, 'Papua New Guinea'),
+(181, 'Paraguay'),
+(182, 'Peru'),
+(183, 'Philippines'),
+(184, 'Pitcairn'),
+(185, 'Poland'),
+(186, 'Portugal'),
+(187, 'Puerto'),
+(188, 'Rico'),
+(189, 'Qatar'),
+(190, 'Reunion'),
+(191, 'Romania'),
+(192, 'Russian Federation'),
+(193, 'Rwanda'),
+(194, 'Saint Barthelemy'),
+(195, 'Saint Helena'),
+(196, 'Saint Kitts And Nevis'),
+(197, 'Saint Lucia'),
+(198, 'Saint Martin'),
+(199, 'Saint Pierre And Miquelon'),
+(200, 'Saint Vincent And Grenadines'),
+(201, 'Samoa'),
+(202, 'San Marino'),
+(203, 'Sao Tome And Principe'),
+(204, 'Saudi Arabia'),
+(205, 'Senegal'),
+(206, 'Serbia'),
+(207, 'Seychelles'),
+(208, 'Sierra Leone'),
+(209, 'Singapore'),
+(210, 'Slovakia'),
+(211, 'Slovenia'),
+(212, 'Solomon Islands'),
+(213, 'Somalia'),
+(214, 'South Africa'),
+(215, 'South Georgia And Sandwich Isl.'),
+(216, 'Spain'),
+(217, 'Sri Lanka'),
+(218, 'Sudan'),
+(219, 'Suriname'),
+(220, 'Svalbard And Jan Mayen'),
+(221, 'Swaziland'),
+(222, 'Sweden'),
+(223, 'Switzerland'),
+(224, 'Syrian Arab Republic'),
+(225, 'Taiwan'),
+(226, 'Tajikistan'),
+(227, 'Tanzania'),
+(228, 'Thailand'),
+(229, 'Timor-Leste'),
+(230, 'Togo'),
+(231, 'Tokelau'),
+(232, 'Tonga'),
+(233, 'Trinidad And Tobago'),
+(234, 'Tunisia'),
+(235, 'Turkey'),
+(236, 'Turkmenistan'),
+(237, 'Turks And Caicos Islands'),
+(238, 'Tuvalu'),
+(239, 'Uganda'),
+(240, 'Ukraine'),
+(241, 'United Arab Emirates'),
+(242, 'United Kingdom'),
+(243, 'United States'),
+(244, 'United States Outlying Islands'),
+(245, 'Uruguay'),
+(246, 'Uzbekistan'),
+(247, 'Vanuatu'),
+(248, 'Venezuela'),
+(249, 'Viet Nam'),
+(250, 'Virgin Islands  British'),
+(251, 'Virgin Islands  U.S.'),
+(252, 'Wallis And Futuna'),
+(253, 'Western Sahara'),
+(254, 'Yemen'),
+(255, 'Zambia'),
+(256, 'Zimbabwe\r\n');
 
 -- --------------------------------------------------------
 
@@ -400,6 +644,7 @@ CREATE TABLE `gw_customer` (
   `province` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `address` text,
+  `address1` text,
   `zip` int(10) NOT NULL,
   `datetime` int(14) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
@@ -411,9 +656,14 @@ CREATE TABLE `gw_customer` (
 -- 转存表中的数据 `gw_customer`
 --
 
-INSERT INTO `gw_customer` (`id`, `username`, `sex`, `phone`, `email`, `country`, `province`, `city`, `address`, `zip`, `datetime`, `status`, `parent_id`, `is_defult`) VALUES
-(33, 'cdw', 1, '1882014541', '', '德国', '12312313', '1234564564', '广东深圳', 518100, 1543827138, 1, 6, 1),
-(31, 'dwei', 1, '1882014541', '', 'china', 'guangdong', 'shenzhen', ' longgang ', 518100, 1543818517, 1, 6, 2);
+INSERT INTO `gw_customer` (`id`, `username`, `sex`, `phone`, `email`, `country`, `province`, `city`, `address`, `address1`, `zip`, `datetime`, `status`, `parent_id`, `is_defult`) VALUES
+(34, 'dewei,chen', 1, '1882014541', '', 'China', 'GuangDong', 'ShenZhen', 'Longgang road,asjkdhajk,hsduha6', NULL, 518100, 1544090072, 1, 7, 1),
+(42, 'Chen,DeWei', 1, '1882014541', '', 'China', 'Alabama', 'ShenZhen', 'Baoan ShaJing', 'GuangChang 1hao', 518100, 1544263646, 1, 6, 1),
+(37, 'dewei,chen', 1, '1882014541', '', 'China', 'GuangDong', 'ShenZhen', 'Longgang road,asjkdhajk,hsduh7', NULL, 518100, 1544090637, 1, 7, 1),
+(38, 'dewei,chen', 1, '1882014541', '', 'China', 'GuangDong', 'ShenZhen', 'Longgang road,asjkdhajk,hsduh8', NULL, 518100, 1544090658, 1, 7, 2),
+(44, 'Chen,DeWei', 1, '1882014541', '', 'United States', 'Alabama', 'ShenZhen', 'Baoan ShaJing', 'GuangChang 1hao', 518100, 1544263861, 1, 6, 1),
+(45, 'Chen,dewei', 1, '1882014541', '', 'United States', 'California', '1234564564', '广东深圳', '', 518100, 1544263949, 1, 6, 2),
+(43, 'Chen,DeWei', 1, '1882014541', '', 'China', 'Guangdong', 'ShenZhen', 'Baoan ShaJing', 'GuangChang 1hao', 518100, 1544263840, 1, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -603,8 +853,19 @@ CREATE TABLE `gw_order` (
   `zip` int(11) NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '0',
   `proid` varchar(200) NOT NULL,
-  `remark` varchar(255) DEFAULT NULL
+  `remark` varchar(255) DEFAULT NULL,
+  `ship` float NOT NULL DEFAULT '0',
+  `alltotal` float NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `gw_order`
+--
+
+INSERT INTO `gw_order` (`id`, `ordernum`, `ordertime`, `proname`, `buyer`, `price`, `num`, `paytype`, `status`, `truename`, `phone`, `email`, `address`, `zip`, `user_id`, `proid`, `remark`, `ship`, `alltotal`) VALUES
+(78, '151711544262678', 1544262678, 'ETEREAUTY 6pcs Ear Pick Ear Curette Earwax Removal with Storage Box', 'Chen,DeWei', '8.99', '1', 'paypal', 1, 'Chen,DeWei', '1882014541', '', 'Baoan ShaJing', 518100, 6, '115', NULL, 0, 8.99),
+(79, '166671544264012', 1544264012, '3D False Eyelashes, ETEREAUTY Wispy Long Cross Hand-Made Reusable Natural False Eyelashes with Applicator Kit', 'Chen,dewei', '6.99', '1', 'paypal', 1, 'Chen,dewei', '1882014541', '', '广东深圳', 518100, 6, '76', NULL, 0, 6.99),
+(80, '106451544264085', 1544264085, '3D False Eyelashes, ETEREAUTY Wispy Long Cross Hand-Made Reusable Natural False Eyelashes with Applicator Kit', 'Chen,dewei', '6.99', '1', 'paypal', 1, 'Chen,dewei', '1882014541', '', '广东深圳', 518100, 6, '76', NULL, 0, 6.99);
 
 -- --------------------------------------------------------
 
@@ -747,6 +1008,74 @@ INSERT INTO `gw_proclass` (`id`, `name`, `pid`, `path`, `level`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `gw_province`
+--
+
+CREATE TABLE `gw_province` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `gw_province`
+--
+
+INSERT INTO `gw_province` (`id`, `name`) VALUES
+(1, 'Alabama'),
+(2, 'Alaska'),
+(3, 'Arizona'),
+(4, 'Arkansas'),
+(5, 'California'),
+(6, 'Colorado'),
+(7, 'Connecticut'),
+(8, 'Delaware'),
+(9, 'District of Columbia'),
+(10, 'Florida'),
+(11, 'Georgia'),
+(12, 'Hawaii'),
+(13, 'Idaho'),
+(14, 'Illinois'),
+(15, 'Indiana'),
+(16, 'Iowa'),
+(17, 'Kansas'),
+(18, 'Kentucky'),
+(19, 'Louisiana'),
+(20, 'Maine'),
+(21, 'Maryland'),
+(22, 'Massachusetts'),
+(23, 'Michigan'),
+(24, 'Minnesota'),
+(25, 'Mississippi'),
+(26, 'Missouri'),
+(27, 'Montana'),
+(28, 'Nebraska'),
+(29, 'Nevada'),
+(30, 'New Hampshire'),
+(31, 'New Jersey'),
+(32, 'New Mexico'),
+(33, 'New York'),
+(34, 'North Carolina'),
+(35, 'North Dakota'),
+(36, 'Ohio'),
+(37, 'Oklahoma'),
+(38, 'Oregon'),
+(39, 'Pennsylvania'),
+(40, 'Rhode Island'),
+(41, 'South Carolina'),
+(42, 'South Dakota'),
+(43, 'Tennessee'),
+(44, 'Texas'),
+(45, 'Utah'),
+(46, 'Vermont'),
+(47, 'Virginia'),
+(48, 'Washington'),
+(49, 'West Virginia'),
+(50, 'Wisconsin'),
+(51, 'Wyoming');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `gw_reply`
 --
 
@@ -853,7 +1182,8 @@ CREATE TABLE `gw_users` (
 INSERT INTO `gw_users` (`id`, `email`, `pwd`, `pic`) VALUES
 (1, 'cdw', '202cb962ac59075b964b07152d234b70', '/uploads/image/20181011/17411694298.png'),
 (5, 'ddd', '202cb962ac59075b964b07152d234b70', NULL),
-(6, '724165502@qq.com', '632903a0ea005c86f673b275d98f7d52', NULL);
+(6, '724165502@qq.com', '632903a0ea005c86f673b275d98f7d52', NULL),
+(7, '18820145410@163.com', '632903a0ea005c86f673b275d98f7d52', NULL);
 
 -- --------------------------------------------------------
 
@@ -938,7 +1268,7 @@ ALTER TABLE `gw_commont`
 -- Indexes for table `gw_country`
 --
 ALTER TABLE `gw_country`
-  ADD PRIMARY KEY (`country_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gw_coupon`
@@ -998,6 +1328,12 @@ ALTER TABLE `gw_pro`
 -- Indexes for table `gw_proclass`
 --
 ALTER TABLE `gw_proclass`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gw_province`
+--
+ALTER TABLE `gw_province`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1089,7 +1425,7 @@ ALTER TABLE `gw_commont`
 -- 使用表AUTO_INCREMENT `gw_country`
 --
 ALTER TABLE `gw_country`
-  MODIFY `country_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
 --
 -- 使用表AUTO_INCREMENT `gw_coupon`
 --
@@ -1099,7 +1435,7 @@ ALTER TABLE `gw_coupon`
 -- 使用表AUTO_INCREMENT `gw_customer`
 --
 ALTER TABLE `gw_customer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- 使用表AUTO_INCREMENT `gw_files`
 --
@@ -1124,7 +1460,7 @@ ALTER TABLE `gw_mo`
 -- 使用表AUTO_INCREMENT `gw_order`
 --
 ALTER TABLE `gw_order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- 使用表AUTO_INCREMENT `gw_pay`
 --
@@ -1140,6 +1476,11 @@ ALTER TABLE `gw_pro`
 --
 ALTER TABLE `gw_proclass`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- 使用表AUTO_INCREMENT `gw_province`
+--
+ALTER TABLE `gw_province`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- 使用表AUTO_INCREMENT `gw_reply`
 --
@@ -1164,7 +1505,7 @@ ALTER TABLE `gw_smtp`
 -- 使用表AUTO_INCREMENT `gw_users`
 --
 ALTER TABLE `gw_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- 使用表AUTO_INCREMENT `gw_wish`
 --
